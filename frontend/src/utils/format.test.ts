@@ -30,15 +30,15 @@ describe("format utilities", () => {
   });
 
   it("colours price direction", () => {
-    expect(priceDirClass(1)).toContain("gain");
-    expect(priceDirClass(-1)).toContain("risk");
-    expect(priceDirClass(0)).toContain("slate");
+    expect(priceDirClass(1)).toContain("positive");
+    expect(priceDirClass(-1)).toContain("negative");
+    expect(priceDirClass(0)).toContain("muted");
   });
 
   it("maps attention score to a colour band", () => {
-    expect(scoreColor(90)).toBe("#f43f5e");
-    expect(scoreColor(65)).toBe("#f5a524");
-    expect(scoreColor(10)).toBe("#64748b");
+    expect(scoreColor(90)).toBe("var(--negative)");
+    expect(scoreColor(65)).toBe("var(--warning)");
+    expect(scoreColor(10)).toBe("var(--muted-foreground)");
   });
 
   it("labels simulated market hours", () => {
@@ -55,8 +55,8 @@ describe("format utilities", () => {
   });
 
   it("tones verdicts", () => {
-    expect(verdictTone("Unusual price and volume activity")).toBe("risk");
-    expect(verdictTone("Sector-driven movement")).toBe("neutral");
-    expect(verdictTone("Normal movement")).toBe("muted");
+    expect(verdictTone("Unusual price and volume activity")).toBe("negative");
+    expect(verdictTone("Sector-driven movement")).toBe("default");
+    expect(verdictTone("Normal movement")).toBe("secondary");
   });
 });

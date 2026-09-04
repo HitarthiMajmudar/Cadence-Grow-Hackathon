@@ -1,17 +1,34 @@
 import type { ReactNode } from "react";
 import { AlertTriangle, Info, Loader2 } from "lucide-react";
-import { cx } from "@/utils/format";
+import { cn } from "@/lib/utils";
+import { Card as ShadCard, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Progress as ShadProgress } from "@/components/ui/progress";
+import {
+  Tooltip as ShadTooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+/**
+ * Compatibility layer over the shadcn/ui (base-lyra) primitives. Pages import
+ * these names; the implementations are now plain semantic-token components.
+ */
 
 export function Card({
   children,
   className,
-  as: As = "div",
 }: {
   children: ReactNode;
   className?: string;
-  as?: any;
 }) {
-  return <As className={cx("glass p-5", className)}>{children}</As>;
+  return (
+    <ShadCard className={className}>
+      <CardContent>{children}</CardContent>
+    </ShadCard>
+  );
 }
 
 export function SectionTitle({
@@ -25,9 +42,9 @@ export function SectionTitle({
 }) {
   return (
     <div className="mb-3 flex items-end justify-between gap-3">
-      <div>
-        <h2 className="text-sm font-bold uppercase tracking-wide text-slate-200">{children}</h2>
-        {hint && <p className="mt-0.5 text-xs text-slate-500">{hint}</p>}
+      <div className="min-w-0">
+        <h2 className="text-sm font-semibold tracking-tight text-foreground">{children}</h2>
+        {hint && <p className="mt-0.5 text-xs text-muted-foreground">{hint}</p>}
       </div>
       {right}
     </div>
@@ -44,11 +61,19 @@ export function Chip({
   title?: string;
 }) {
   return (
-    <span title={title} className={cx("chip", className)}>
+    <Badge variant="outline" title={title} className={cn("gap-1", className)}>
       {children}
-    </span>
+    </Badge>
   );
 }
+
+const STAT_TONE: Record<string, string> = {
+  default: "text-foreground",
+  attention: "text-warning-foreground",
+  neutral: "text-primary",
+  risk: "text-negative",
+  gain: "text-positive",
+};
 
 export function StatTile({
   label,
@@ -61,40 +86,26 @@ export function StatTile({
   sub?: ReactNode;
   tone?: "default" | "attention" | "neutral" | "risk" | "gain";
 }) {
-  const toneCls = {
-    default: "text-slate-100",
-    attention: "text-attention",
-    neutral: "text-neutralc-soft",
-    risk: "text-risk",
-    gain: "text-gain",
-  }[tone];
   return (
-    <div className="glass-soft px-4 py-3">
-      <div className="label">{label}</div>
-      <div className={cx("mt-1 text-lg font-bold tabular-nums", toneCls)}>{value}</div>
-      {sub && <div className="mt-0.5 text-xs text-slate-500">{sub}</div>}
+    <div className="rounded-md border bg-card p-3">
+      <div className="text-xs text-muted-foreground">{label}</div>
+      <div className={cn("mt-1 text-lg font-semibold tabular-nums", STAT_TONE[tone])}>{value}</div>
+      {sub && <div className="mt-0.5 text-xs text-muted-foreground">{sub}</div>}
     </div>
   );
 }
 
 export function Spinner({ label }: { label?: string }) {
   return (
-    <div className="flex items-center gap-2 text-sm text-slate-400">
-      <Loader2 className="h-4 w-4 animate-spin" />
+    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+      <Loader2 className="size-4 animate-spin" />
       {label ?? "Loading…"}
     </div>
   );
 }
 
 export function LoadingBlock({ height = 160 }: { height?: number }) {
-  return (
-    <div
-      className="glass animate-pulse"
-      style={{ height }}
-      aria-busy="true"
-      aria-label="Loading"
-    />
-  );
+  return <Skeleton style={{ height }} className="w-full" aria-busy="true" aria-label="Loading" />;
 }
 
 export function EmptyState({
@@ -109,10 +120,10 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="glass flex flex-col items-center justify-center gap-2 px-6 py-10 text-center">
-      <div className="text-slate-500">{icon ?? <Info className="h-6 w-6" />}</div>
-      <div className="font-semibold text-slate-200">{title}</div>
-      {message && <div className="max-w-sm text-sm text-slate-500">{message}</div>}
+    <div className="flex flex-col items-center justify-center gap-2 rounded-md border border-dashed bg-card px-6 py-10 text-center">
+      <div className="text-muted-foreground">{icon ?? <Info className="size-5" />}</div>
+      <div className="text-sm font-medium text-foreground">{title}</div>
+      {message && <div className="max-w-sm text-xs text-muted-foreground">{message}</div>}
       {action}
     </div>
   );
@@ -120,14 +131,14 @@ export function EmptyState({
 
 export function ErrorState({ message, onRetry }: { message?: string; onRetry?: () => void }) {
   return (
-    <div className="glass flex flex-col items-center gap-2 border-risk/30 px-6 py-8 text-center">
-      <AlertTriangle className="h-6 w-6 text-risk" />
-      <div className="font-semibold text-slate-200">Something went wrong</div>
-      <div className="max-w-sm text-sm text-slate-500">{message ?? "Please try again."}</div>
+    <div className="flex flex-col items-center gap-2 rounded-md border border-destructive/30 bg-card px-6 py-8 text-center">
+      <AlertTriangle className="size-5 text-destructive" />
+      <div className="text-sm font-medium text-foreground">Something went wrong</div>
+      <div className="max-w-sm text-xs text-muted-foreground">{message ?? "Please try again."}</div>
       {onRetry && (
-        <button className="btn-ghost mt-1" onClick={onRetry}>
+        <Button variant="outline" size="sm" className="mt-1" onClick={onRetry}>
           Retry
-        </button>
+        </Button>
       )}
     </div>
   );
@@ -135,31 +146,32 @@ export function ErrorState({ message, onRetry }: { message?: string; onRetry?: (
 
 export function Tooltip({ text, children }: { text: string; children: ReactNode }) {
   return (
-    <span className="group relative inline-flex cursor-help items-center">
-      {children}
-      <span
-        role="tooltip"
-        className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-56 -translate-x-1/2 rounded-lg border border-white/10 bg-ink-900 px-3 py-2 text-xs leading-relaxed text-slate-300 opacity-0 shadow-xl transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
-      >
-        {text}
-      </span>
-    </span>
+    <ShadTooltip>
+      <TooltipTrigger
+        render={<span className="inline-flex cursor-help items-center">{children}</span>}
+      />
+      <TooltipContent className="max-w-xs">{text}</TooltipContent>
+    </ShadTooltip>
   );
 }
 
 export function InfoDot({ text }: { text: string }) {
   return (
     <Tooltip text={text}>
-      <Info className="h-3.5 w-3.5 text-slate-500 hover:text-slate-300" tabIndex={0} />
+      <Info className="size-3.5 text-muted-foreground hover:text-foreground" tabIndex={0} />
     </Tooltip>
   );
 }
 
-export function Progress({ value, max = 100, className }: { value: number; max?: number; className?: string }) {
-  const p = Math.max(0, Math.min(100, (value / max) * 100));
-  return (
-    <div className={cx("h-1.5 w-full overflow-hidden rounded-full bg-white/10", className)}>
-      <div className="h-full rounded-full bg-attention transition-all" style={{ width: `${p}%` }} />
-    </div>
-  );
+export function Progress({
+  value,
+  max = 100,
+  className,
+}: {
+  value: number;
+  max?: number;
+  className?: string;
+}) {
+  const pct = Math.max(0, Math.min(100, (value / max) * 100));
+  return <ShadProgress value={pct} className={cn("w-full", className)} />;
 }

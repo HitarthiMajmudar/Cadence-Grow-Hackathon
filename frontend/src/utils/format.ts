@@ -59,74 +59,84 @@ export function marketHoursLabel(bars: number): string {
   return `${bars} simulated market hours (~${sessions.toFixed(1)} sessions)`;
 }
 
-// ---- colour + label helpers ------------------------------------------------ //
+// ---- badge tone + label helpers ------------------------------------------- //
 
-export function severityMeta(s: Severity | string): { label: string; cls: string; dot: string } {
+/** Names that map 1:1 to <Badge variant="…"> in components/ui/badge.tsx. */
+export type BadgeTone =
+  | "default"
+  | "secondary"
+  | "outline"
+  | "destructive"
+  | "positive"
+  | "negative"
+  | "warning";
+
+export function severityMeta(s: Severity | string): { label: string; tone: BadgeTone } {
   switch (s) {
     case "critical":
-      return { label: "Critical", cls: "text-risk border-risk/40 bg-risk/10", dot: "bg-risk" };
+      return { label: "Critical", tone: "negative" };
     case "high":
-      return { label: "High", cls: "text-attention border-attention/40 bg-attention/10", dot: "bg-attention" };
+      return { label: "High", tone: "warning" };
     case "moderate":
-      return { label: "Moderate", cls: "text-attention-soft border-attention/30 bg-attention/5", dot: "bg-attention-soft" };
+      return { label: "Moderate", tone: "warning" };
     case "low":
-      return { label: "Low", cls: "text-neutralc-soft border-neutralc/30 bg-neutralc/5", dot: "bg-neutralc" };
+      return { label: "Low", tone: "secondary" };
     default:
-      return { label: "Minimal", cls: "text-slate-400 border-white/10 bg-white/5", dot: "bg-slate-500" };
+      return { label: "Minimal", tone: "outline" };
   }
 }
 
-export function freshnessMeta(f: Freshness | string): { label: string; cls: string } {
+export function freshnessMeta(f: Freshness | string): { label: string; tone: BadgeTone } {
   switch (f) {
     case "fresh":
-      return { label: "Fresh", cls: "text-gain border-gain/30 bg-gain/10" };
+      return { label: "Fresh", tone: "positive" };
     case "delayed":
-      return { label: "Delayed", cls: "text-attention-soft border-attention/30 bg-attention/10" };
+      return { label: "Delayed", tone: "warning" };
     case "stale":
-      return { label: "Stale", cls: "text-attention border-attention/40 bg-attention/10" };
+      return { label: "Stale", tone: "warning" };
     case "missing":
-      return { label: "Missing", cls: "text-risk border-risk/40 bg-risk/10" };
+      return { label: "Missing", tone: "negative" };
     case "conflicting":
-      return { label: "Conflicting", cls: "text-risk border-risk/40 bg-risk/10" };
+      return { label: "Conflicting", tone: "negative" };
     default:
-      return { label: f, cls: "text-slate-400 border-white/10 bg-white/5" };
+      return { label: String(f), tone: "outline" };
   }
 }
 
-export function changeClassMeta(c: ChangeClass | string): { label: string; cls: string } {
+export function changeClassMeta(c: ChangeClass | string): { label: string; tone: BadgeTone } {
   switch (c) {
     case "important":
-      return { label: "Important", cls: "text-attention border-attention/40 bg-attention/10" };
+      return { label: "Important", tone: "warning" };
     case "investigating":
-      return { label: "Investigating", cls: "text-neutralc-soft border-neutralc/30 bg-neutralc/10" };
+      return { label: "Investigating", tone: "default" };
     case "explained":
-      return { label: "Explained", cls: "text-slate-300 border-white/10 bg-white/5" };
+      return { label: "Explained", tone: "secondary" };
     case "insufficient_data":
-      return { label: "Insufficient data", cls: "text-risk border-risk/30 bg-risk/10" };
+      return { label: "Insufficient data", tone: "negative" };
     default:
-      return { label: "Normal", cls: "text-slate-400 border-white/10 bg-white/5" };
+      return { label: "Normal", tone: "outline" };
   }
 }
 
 export function priceDirClass(v: number | null | undefined): string {
-  if (v === null || v === undefined || v === 0) return "text-slate-300";
-  return v > 0 ? "text-gain" : "text-risk";
+  if (v === null || v === undefined || v === 0) return "text-muted-foreground";
+  return v > 0 ? "text-positive" : "text-negative";
 }
 
+/** CSS-variable colour for the Attention Score gauge / chart marks (0-100). */
 export function scoreColor(score: number): string {
-  if (score >= 78) return "#f43f5e";
-  if (score >= 60) return "#f5a524";
-  if (score >= 44) return "#fbbf24";
-  if (score >= 28) return "#22d3ee";
-  return "#64748b";
+  if (score >= 70) return "var(--negative)";
+  if (score >= 50) return "var(--warning)";
+  if (score >= 30) return "var(--chart-2)";
+  return "var(--muted-foreground)";
 }
 
-export function verdictTone(verdict: string): "risk" | "attention" | "neutral" | "muted" {
+export function verdictTone(verdict: string): BadgeTone {
   const risky = ["Unusual price and volume activity", "Possible breakdown", "Price activity before recorded news"];
   const attn = ["Conflicting evidence", "Volatility-regime change", "Possible breakout"];
   const muted = ["Normal movement", "Insufficient data", "Headline noise"];
-  if (risky.includes(verdict)) return "risk";
-  if (attn.includes(verdict)) return "attention";
-  if (muted.includes(verdict)) return "muted";
-  return "neutral";
+  if (risky.includes(verdict)) return "negative";
+  if (attn.includes(verdict)) return "warning";
+  if (muted.includes(verdict)) return "secondary";
+  return "default";
 }

@@ -20,6 +20,7 @@ import { NewsTimeline } from "@/components/NewsTimeline";
 import { PriceChart } from "@/components/charts";
 import { VerdictBadge, FreshnessBadge } from "@/components/badges";
 import { StoryCardModal } from "@/components/StoryCardModal";
+import { Badge } from "@/components/ui/badge";
 import { Card, ErrorState, LoadingBlock, SectionTitle } from "@/components/ui";
 import { cx, fmtDateTime, severityMeta } from "@/utils/format";
 
@@ -67,7 +68,7 @@ export function CaseDetailPage() {
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <VerdictBadge verdict={c.verdict} />
-              <span className={cx("chip", sev.cls)}>{sev.label} severity</span>
+              <Badge variant={sev.tone}>{sev.label} severity</Badge>
               <FreshnessBadge freshness={c.data_quality.freshness} />
               <span className="text-xs text-slate-500">
                 detected {fmtDateTime(c.detection_timestamp)}
