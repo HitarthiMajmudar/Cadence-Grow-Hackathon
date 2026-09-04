@@ -1,11 +1,19 @@
 import { useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toPng } from "html-to-image";
-import { Download, ExternalLink, Printer, X } from "lucide-react";
+import { Download, ExternalLink, Printer } from "lucide-react";
 import { Link } from "react-router-dom";
 import { api } from "@/api/endpoints";
 import { StoryCard } from "./StoryCard";
 import { Spinner } from "./ui";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function StoryCardModal({ caseId, onClose }: { caseId: string; onClose: () => void }) {
   const { data, isLoading } = useQuery({
@@ -34,20 +42,11 @@ export function StoryCardModal({ caseId, onClose }: { caseId: string; onClose: (
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink-950/80 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="glass max-h-[92vh] w-full max-w-lg overflow-y-auto scrollbar-thin p-5"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-sm font-bold uppercase tracking-wide">Change Story Card</h3>
-          <button className="rounded-lg p-1.5 text-slate-400 hover:bg-white/10" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </button>
-        </div>
+    <Dialog open onOpenChange={(o) => !o && onClose()}>
+      <DialogContent className="max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Change Story Card</DialogTitle>
+        </DialogHeader>
 
         {isLoading || !data ? (
           <div className="grid h-64 place-items-center">
@@ -55,27 +54,31 @@ export function StoryCardModal({ caseId, onClose }: { caseId: string; onClose: (
           </div>
         ) : (
           <>
-            <div className="flex justify-center overflow-x-auto scrollbar-thin">
+            <div className="flex justify-center overflow-x-auto">
               <StoryCard ref={cardRef} data={data} />
             </div>
-            {err && <p className="mt-3 text-xs text-attention">{err}</p>}
-            <div className="mt-4 flex flex-wrap gap-2">
-              <button className="btn-primary" onClick={download} disabled={busy}>
-                <Download className="h-4 w-4" /> {busy ? "Rendering…" : "Download PNG"}
-              </button>
-              <button className="btn-ghost" onClick={() => window.print()}>
-                <Printer className="h-4 w-4" /> Print
-              </button>
-              <Link to={`/story/${caseId}`} target="_blank" className="btn-ghost">
-                <ExternalLink className="h-4 w-4" /> Open standalone
+            {err && <p className="text-xs text-warning-foreground">{err}</p>}
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" onClick={download} disabled={busy}>
+                <Download /> {busy ? "Rendering…" : "Download PNG"}
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => window.print()}>
+                <Printer /> Print
+              </Button>
+              <Link
+                to={`/story/${caseId}`}
+                target="_blank"
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-1.5")}
+              >
+                <ExternalLink /> Open standalone
               </Link>
             </div>
-            <p className="mt-3 text-[11px] text-slate-500">
+            <p className="text-[11px] text-muted-foreground">
               Renders entirely in your browser — no external service. {data.disclaimer}
             </p>
           </>
         )}
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

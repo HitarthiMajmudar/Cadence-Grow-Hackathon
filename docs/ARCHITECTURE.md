@@ -5,7 +5,8 @@
 ```
 ┌────────────────────────┐        HTTPS/JSON        ┌───────────────────────────────┐
 │  React + TS (Vite)     │  ────────────────────▶   │  FastAPI (Python)             │
-│  Tailwind · Recharts   │      /api/*              │                               │
+│  Tailwind v4 · shadcn  │      /api/*              │                               │
+│  AI Elements · Recharts│                          │                               │
 │  TanStack Query        │  ◀────────────────────   │  ┌─────────────────────────┐  │
 │  React Router          │                          │  │ AnalysisEngine (in-mem) │  │
 └────────────────────────┘                          │  │  features · scoring ·   │  │

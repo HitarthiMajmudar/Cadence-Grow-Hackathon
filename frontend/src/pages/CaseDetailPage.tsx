@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -23,8 +23,12 @@ import { StoryCardModal } from "@/components/StoryCardModal";
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, ErrorState, LoadingBlock, SectionTitle } from "@/components/ui";
-import { CodeBlock } from "@/components/ai-elements/code-block";
 import { MessageResponse as Response } from "@/components/ai-elements/message";
+
+/** shiki is heavy — only load the JSON code block when the reader opens it. */
+const CodeBlock = lazy(() =>
+  import("@/components/ai-elements/code-block").then((m) => ({ default: m.CodeBlock })),
+);
 import {
   Reasoning,
   ReasoningContent,
@@ -216,10 +220,9 @@ export function CaseDetailPage() {
             Score breakdown
           </SectionTitle>
           {showRaw ? (
-            <CodeBlock
-              language="json"
-              code={JSON.stringify(c.score_components, null, 2)}
-            />
+            <Suspense fallback={<LoadingBlock height={200} />}>
+              <CodeBlock language="json" code={JSON.stringify(c.score_components, null, 2)} />
+            </Suspense>
           ) : (
             <ScoreBreakdown components={c.score_components} />
           )}

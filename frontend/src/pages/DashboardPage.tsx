@@ -11,7 +11,6 @@ import {
 } from "@/hooks/queries";
 import { useActiveWatchlist } from "@/hooks/useActiveWatchlist";
 import { DatasetClock } from "@/components/DatasetClock";
-import { WatchlistSelector } from "@/components/WatchlistSelector";
 import { SinceYouLeft } from "@/components/SinceYouLeft";
 import { CaseCard } from "@/components/CaseCard";
 import { AttentionMeter } from "@/components/AttentionScore";
@@ -31,7 +30,7 @@ import { cn, fmtDateTime, pct, priceDirClass, money } from "@/utils/format";
 import type { CaseSummary } from "@/types";
 
 export function DashboardPage() {
-  const { activeId, setActive } = useActiveWatchlist();
+  const { activeId } = useActiveWatchlist();
   const { data: clock } = useClock();
   const { data: watchlist, isLoading: wlLoading } = useWatchlist(activeId);
   const { data: briefing, isLoading: brLoading, error: brError, refetch } = useBriefing(activeId);
@@ -63,16 +62,13 @@ export function DashboardPage() {
             {watchlist ? `${watchlist.name} · ${watchlist.symbols.length} stocks` : "Loading watchlist…"}
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <WatchlistSelector activeId={activeId} onChange={setActive} />
-          <Link
-            to="/time-machine"
-            className={cn(buttonVariants({ variant: "secondary", size: "sm" }), "gap-1.5")}
-          >
-            <Rewind />
-            Replay what I missed
-          </Link>
-        </div>
+        <Link
+          to="/time-machine"
+          className={cn(buttonVariants({ variant: "secondary", size: "sm" }), "gap-1.5")}
+        >
+          <Rewind />
+          Replay what I missed
+        </Link>
       </div>
 
       <Card className="p-4">

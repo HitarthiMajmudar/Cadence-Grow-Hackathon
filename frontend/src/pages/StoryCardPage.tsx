@@ -6,6 +6,15 @@ import { Download, Printer } from "lucide-react";
 import { api } from "@/api/endpoints";
 import { StoryCard } from "@/components/StoryCard";
 import { Spinner } from "@/components/ui";
+import {
+  Artifact,
+  ArtifactAction,
+  ArtifactActions,
+  ArtifactDescription,
+  ArtifactHeader,
+  ArtifactTitle,
+  ArtifactContent,
+} from "@/components/ai-elements/artifact";
 
 export function StoryCardPage() {
   const { caseId = "" } = useParams();
@@ -30,27 +39,32 @@ export function StoryCardPage() {
   };
 
   return (
-    <div className="grid min-h-screen place-items-center p-6">
+    <div className="grid min-h-svh place-items-center bg-muted/30 p-6">
       {isLoading || !data ? (
         <Spinner />
       ) : (
-        <div className="space-y-4">
-          <div className="flex justify-center">
+        <Artifact className="w-full max-w-md">
+          <ArtifactHeader>
+            <div>
+              <ArtifactTitle>Change Story Card</ArtifactTitle>
+              <ArtifactDescription>
+                {data.symbol} · educational market analysis, not investment advice
+              </ArtifactDescription>
+            </div>
+            <ArtifactActions className="print:hidden">
+              <ArtifactAction icon={Download} tooltip="Download PNG" onClick={download} />
+              <ArtifactAction icon={Printer} tooltip="Print" onClick={() => window.print()} />
+            </ArtifactActions>
+          </ArtifactHeader>
+          <ArtifactContent className="flex justify-center bg-muted/30">
             <StoryCard ref={ref} data={data} />
-          </div>
-          {err && <p className="text-center text-xs text-attention">{err}</p>}
-          <div className="flex justify-center gap-2 print:hidden">
-            <button className="btn-primary" onClick={download}>
-              <Download className="h-4 w-4" /> Download PNG
-            </button>
-            <button className="btn-ghost" onClick={() => window.print()}>
-              <Printer className="h-4 w-4" /> Print
-            </button>
-          </div>
-          <p className="text-center text-[11px] text-slate-500 print:hidden">
-            Educational market analysis. Not investment advice.
-          </p>
-        </div>
+          </ArtifactContent>
+          {err && (
+            <p className="border-t px-4 py-2 text-center text-[11px] text-warning-foreground print:hidden">
+              {err}
+            </p>
+          )}
+        </Artifact>
       )}
     </div>
   );
