@@ -1,8 +1,6 @@
 import type { ChangeClass, Freshness, Severity } from "@/types";
 
-export function cx(...parts: (string | false | null | undefined)[]): string {
-  return parts.filter(Boolean).join(" ");
-}
+export { cn, cn as cx } from "@/lib/utils";
 
 const INR = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 });
 const INR0 = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });

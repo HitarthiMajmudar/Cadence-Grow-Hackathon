@@ -17,4 +17,15 @@ module.exports = {
     "@typescript-eslint/ban-ts-comment": "off",
     "no-empty": ["error", { allowEmptyCatch: true }],
   },
+  overrides: [
+    {
+      // Generated primitives from `shadcn` / `@ai-elements` — not hand-maintained.
+      files: ["src/components/ui/**", "src/components/ai-elements/**"],
+      rules: {
+        "react-refresh/only-export-components": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "react-hooks/rules-of-hooks": "off",
+      },
+    },
+  ],
 };
