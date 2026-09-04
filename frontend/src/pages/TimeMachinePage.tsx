@@ -135,7 +135,9 @@ export function TimeMachinePage() {
             <span className={LABEL}>Window</span>
             <Select value={String(lookback)} onValueChange={(v) => v && setLookback(Number(v))}>
               <SelectTrigger className="mt-1">
-                <SelectValue />
+                <SelectValue>
+                  {(v) => WINDOWS.find((w) => String(w.v) === v)?.label ?? v}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 {WINDOWS.map((w) => (

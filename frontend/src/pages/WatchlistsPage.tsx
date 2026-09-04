@@ -198,7 +198,9 @@ export function WatchlistsPage() {
                       }
                     >
                       <SelectTrigger className="mt-2 w-full">
-                        <SelectValue />
+                        <SelectValue>
+                          {(v) => budgets.find((b) => b.id === v)?.label ?? v}
+                        </SelectValue>
                       </SelectTrigger>
                       <SelectContent>
                         {budgets.map((b) => (
