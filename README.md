@@ -137,8 +137,9 @@ market-detective/
 │   │   └── data/        deterministic dataset generator + loader
 │   ├── scripts/         seed.py, diagnose.py
 │   └── tests/
-├── frontend/           React · TypeScript · Vite · Tailwind · Recharts ·
-│   └── src/             TanStack Query · React Router · Framer-Motion touches
+├── frontend/           React · TypeScript · Vite · Tailwind v4 · Recharts ·
+│   └── src/             shadcn/ui (base-lyra) + Vercel AI Elements · TanStack
+│                        Query · React Router
 ├── data/generated/     the committed Offline Research Dataset (CSV + JSON)
 └── docs/               ARCHITECTURE · DEMO_SCRIPT · MODEL_CARD ·
                         DATA_DICTIONARY · SCENARIO_MANIFEST

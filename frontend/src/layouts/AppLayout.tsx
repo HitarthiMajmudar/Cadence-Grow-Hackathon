@@ -1,22 +1,50 @@
 import { useEffect } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Clock3, LayoutDashboard, ListChecks, LogOut, Search, Rewind } from "lucide-react";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { LayoutDashboard, ListChecks, LogOut, Rewind, Search } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useHealth } from "@/hooks/queries";
 import { OfflineDatasetBadge, DemoModeBadge } from "@/components/badges";
-import { cx } from "@/utils/format";
+import { WatchlistSelector } from "@/components/WatchlistSelector";
+import { useActiveWatchlist } from "@/hooks/useActiveWatchlist";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarSeparator,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const NAV = [
   { to: "/", label: "Investigation Room", icon: LayoutDashboard, end: true },
-  { to: "/watchlists", label: "Watchlists", icon: ListChecks },
-  { to: "/time-machine", label: "Time Machine", icon: Rewind },
-  { to: "/stocks", label: "Stocks", icon: Search },
+  { to: "/watchlists", label: "Watchlists", icon: ListChecks, end: false },
+  { to: "/time-machine", label: "Time Machine", icon: Rewind, end: false },
+  { to: "/stocks", label: "Stocks", icon: Search, end: false },
 ];
 
 export function AppLayout() {
   const { user, loading, logout } = useAuth();
   const { data: health } = useHealth();
+  const { activeId, setActive } = useActiveWatchlist();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!loading && !user) navigate("/login", { replace: true });
@@ -24,82 +52,106 @@ export function AppLayout() {
 
   if (loading || !user) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-slate-500">Loading…</div>
+      <div className="flex min-h-svh items-center justify-center">
+        <Skeleton className="h-8 w-40" />
+      </div>
     );
   }
 
+  const initials = user.name
+    .split(/\s+/)
+    .map((p) => p[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
-    <div className="min-h-screen">
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-ink-950/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-6 gap-y-3 px-4 py-3 lg:px-8">
-          <NavLink to="/" className="flex items-center gap-2.5">
-            <img src="/detective.svg" alt="" className="h-8 w-8" />
-            <div className="leading-tight">
-              <div className="text-sm font-extrabold tracking-tight">Market Detective</div>
-              <div className="text-[10px] text-slate-500">Your stocks moved. We investigated why.</div>
+    <SidebarProvider>
+      <Sidebar collapsible="icon">
+        <SidebarHeader>
+          <Link to="/" className="flex items-center gap-2 px-1 py-1.5">
+            <img src="/detective.svg" alt="" className="size-6 shrink-0" />
+            <div className="leading-tight group-data-[collapsible=icon]:hidden">
+              <div className="text-sm font-semibold tracking-tight">Market Detective</div>
+              <div className="text-xs text-muted-foreground">We investigated why.</div>
             </div>
-          </NavLink>
-
-          <nav className="order-3 flex w-full items-center gap-1 overflow-x-auto scrollbar-thin lg:order-none lg:w-auto">
-            {NAV.map(({ to, label, icon: Icon, end }) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={end}
-                className={({ isActive }) =>
-                  cx(
-                    "flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                    isActive ? "bg-white/10 text-white" : "text-slate-400 hover:bg-white/5 hover:text-slate-200",
-                  )
-                }
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </NavLink>
-            ))}
-          </nav>
-
-          <div className="ml-auto flex items-center gap-2">
-            <div className="hidden items-center gap-2 sm:flex">
+          </Link>
+        </SidebarHeader>
+        <SidebarSeparator />
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarMenu>
+              {NAV.map(({ to, label, icon: Icon, end }) => {
+                const active = end ? pathname === to : pathname.startsWith(to);
+                return (
+                  <SidebarMenuItem key={to}>
+                    <SidebarMenuButton
+                      isActive={active}
+                      tooltip={label}
+                      render={<NavLink to={to} end={end} />}
+                    >
+                      <Icon />
+                      <span>{label}</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <div className="flex flex-col gap-1.5 group-data-[collapsible=icon]:hidden">
+            <div className="flex flex-wrap gap-1.5">
               <OfflineDatasetBadge label={health?.dataset_label} />
               <DemoModeBadge />
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 py-1 pl-3 pr-1">
-              <div className="text-right leading-tight">
-                <div className="text-xs font-semibold">{user.name}</div>
-                <div className="text-[10px] text-slate-500">{user.email}</div>
-              </div>
-              <button
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-white/10 hover:text-slate-200"
-                title="Log out"
-                onClick={() => {
-                  logout();
-                  navigate("/login");
-                }}
-              >
-                <LogOut className="h-4 w-4" />
-              </button>
-            </div>
+            <p className="text-[11px] leading-snug text-muted-foreground">
+              Educational prototype. Synthetic data — not live market data. Not investment advice.
+            </p>
           </div>
-        </div>
-      </header>
+        </SidebarFooter>
+      </Sidebar>
 
-      <main className="mx-auto max-w-[1400px] px-4 py-6 lg:px-8">
-        <Outlet />
-      </main>
-
-      <footer className="mx-auto max-w-[1400px] px-4 pb-10 pt-4 text-xs text-slate-600 lg:px-8">
-        <div className="flex items-center gap-2">
-          <Clock3 className="h-3.5 w-3.5" />
-          {health?.db_backend === "mongo" ? "Persisted to MongoDB Atlas" : "Persisted to local file store"}
-          {" · "}
-          {health?.sentiment_model === "tfidf_logreg" ? "Local TF-IDF + LogReg sentiment" : "Rule-based sentiment"}
+      <SidebarInset>
+        <header className="sticky top-0 z-30 flex h-12 shrink-0 items-center gap-2 border-b bg-background/95 px-3 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+          <SidebarTrigger />
+          <div className="ml-auto flex items-center gap-2">
+            <WatchlistSelector activeId={activeId} onChange={setActive} />
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <Button variant="ghost" size="sm" className="gap-2">
+                    <Avatar className="size-5">
+                      <AvatarFallback className="text-[10px]">{initials}</AvatarFallback>
+                    </Avatar>
+                    <span className="hidden sm:inline">{user.name}</span>
+                  </Button>
+                }
+              />
+              <DropdownMenuContent align="end" className="w-52">
+                <DropdownMenuLabel>
+                  <div className="font-medium text-foreground">{user.name}</div>
+                  <div className="text-muted-foreground">{user.email}</div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  variant="destructive"
+                  onClick={() => {
+                    logout();
+                    navigate("/login");
+                  }}
+                >
+                  <LogOut />
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </header>
+        <div className="min-h-0 flex-1 p-4 lg:p-6">
+          <Outlet />
         </div>
-        <p className="mt-1">
-          Educational market-analysis prototype. Historical / synthetic data — <strong>not live market data</strong>.
-          Nothing here is investment advice.
-        </p>
-      </footer>
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

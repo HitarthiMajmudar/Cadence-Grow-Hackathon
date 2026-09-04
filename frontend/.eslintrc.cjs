@@ -25,6 +25,8 @@ module.exports = {
         "react-refresh/only-export-components": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "react-hooks/rules-of-hooks": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "no-empty": "off",
       },
     },
   ],
