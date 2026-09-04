@@ -1,4 +1,4 @@
-import { scoreColor, cx } from "@/utils/format";
+import { scoreColor, cn } from "@/utils/format";
 
 interface Props {
   score: number;
@@ -18,9 +18,22 @@ export function AttentionScore({ score, confidence, size = 116, label = "Attenti
   const color = scoreColor(clamped);
 
   return (
-    <div className={cx("relative inline-flex flex-col items-center", className)}>
-      <svg width={size} height={size} className="-rotate-90" role="img" aria-label={`${label} score ${Math.round(clamped)} of 100`}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} />
+    <div className={cn("relative inline-flex flex-col items-center", className)}>
+      <svg
+        width={size}
+        height={size}
+        className="-rotate-90"
+        role="img"
+        aria-label={`${label} score ${Math.round(clamped)} of 100`}
+      >
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={r}
+          fill="none"
+          className="stroke-muted"
+          strokeWidth={stroke}
+        />
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -34,13 +47,15 @@ export function AttentionScore({ score, confidence, size = 116, label = "Attenti
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-extrabold tabular-nums" style={{ color }}>
+        <span className="text-2xl font-bold tabular-nums" style={{ color }}>
           {Math.round(clamped)}
         </span>
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">{label}</span>
+        <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+          {label}
+        </span>
       </div>
       {confidence !== undefined && (
-        <div className="mt-1 text-[11px] text-slate-500">
+        <div className="mt-1 text-[11px] text-muted-foreground">
           {Math.round(confidence)}% confidence
         </div>
       )}
@@ -51,14 +66,14 @@ export function AttentionScore({ score, confidence, size = 116, label = "Attenti
 export function AttentionMeter({ score, className }: { score: number; className?: string }) {
   const clamped = Math.max(0, Math.min(100, score));
   return (
-    <div className={cx("flex items-center gap-2", className)}>
-      <div className="h-2 w-24 overflow-hidden rounded-full bg-white/10">
+    <div className={cn("flex items-center gap-2", className)}>
+      <div className="h-1.5 w-24 overflow-hidden rounded-full bg-muted">
         <div
           className="h-full rounded-full transition-all"
           style={{ width: `${clamped}%`, background: scoreColor(clamped) }}
         />
       </div>
-      <span className="w-7 text-right text-xs font-bold tabular-nums" style={{ color: scoreColor(clamped) }}>
+      <span className="w-7 text-right text-xs font-semibold tabular-nums" style={{ color: scoreColor(clamped) }}>
         {Math.round(clamped)}
       </span>
     </div>

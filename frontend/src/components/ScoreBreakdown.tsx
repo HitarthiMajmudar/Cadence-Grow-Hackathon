@@ -1,6 +1,7 @@
 import type { Evidence, ScoreComponent } from "@/types";
 import { Check, Minus, X } from "lucide-react";
 import { InfoDot } from "./ui";
+import { Progress } from "@/components/ui/progress";
 
 const TERM_HELP: Record<string, string> = {
   price_surprise:
@@ -23,20 +24,19 @@ export function ScoreBreakdown({ components }: { components: ScoreComponent[] })
       {components.map((c) => {
         const pctFill = c.max_points > 0 ? (c.points / c.max_points) * 100 : 0;
         return (
-          <div key={c.key} className="glass-soft px-4 py-3">
+          <div key={c.key} className="rounded-md border bg-muted/40 px-4 py-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="flex items-center gap-1.5 font-medium text-slate-200">
+              <span className="flex items-center gap-1.5 font-medium">
                 {c.label}
                 {TERM_HELP[c.key] && <InfoDot text={TERM_HELP[c.key]} />}
               </span>
-              <span className="tabular-nums text-slate-400">
-                <span className="font-bold text-slate-100">{c.points.toFixed(1)}</span> / {c.max_points}
+              <span className="tabular-nums text-muted-foreground">
+                <span className="font-semibold text-foreground">{c.points.toFixed(1)}</span> /{" "}
+                {c.max_points}
               </span>
             </div>
-            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full bg-attention transition-all" style={{ width: `${pctFill}%` }} />
-            </div>
-            <p className="mt-1.5 text-xs text-slate-500">{c.detail}</p>
+            <Progress value={pctFill} className="mt-1.5" />
+            <p className="mt-1.5 text-xs text-muted-foreground">{c.detail}</p>
           </div>
         );
       })}
@@ -46,11 +46,11 @@ export function ScoreBreakdown({ components }: { components: ScoreComponent[] })
 
 export function EvidenceList({ items, kind }: { items: Evidence[]; kind: "supporting" | "counter" }) {
   const Icon = kind === "supporting" ? Check : X;
-  const color = kind === "supporting" ? "text-attention" : "text-neutralc-soft";
+  const color = kind === "supporting" ? "text-positive" : "text-primary";
   if (!items.length) {
     return (
-      <p className="text-xs text-slate-600">
-        <Minus className="mr-1 inline h-3 w-3" />
+      <p className="text-xs text-muted-foreground">
+        <Minus className="mr-1 inline size-3" />
         None recorded.
       </p>
     );
@@ -59,10 +59,10 @@ export function EvidenceList({ items, kind }: { items: Evidence[]; kind: "suppor
     <ul className="space-y-2">
       {items.map((e, i) => (
         <li key={i} className="flex gap-2">
-          <Icon className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${color}`} />
+          <Icon className={`mt-0.5 size-3.5 shrink-0 ${color}`} />
           <div>
-            <div className="text-sm font-medium text-slate-200">{e.label}</div>
-            <div className="text-xs text-slate-500">{e.detail}</div>
+            <div className="text-sm font-medium">{e.label}</div>
+            <div className="text-xs text-muted-foreground">{e.detail}</div>
           </div>
         </li>
       ))}

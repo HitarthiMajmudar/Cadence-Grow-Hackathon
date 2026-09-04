@@ -1,7 +1,8 @@
 import { ChevronDown, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWatchlists } from "@/hooks/queries";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,14 +26,12 @@ export function WatchlistSelector({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button variant="outline" size="sm" className="gap-1.5">
-            <span className="max-w-[160px] truncate">{active?.name ?? "Watchlist"}</span>
-            <span className="text-muted-foreground">{active?.symbols.length ?? 0}</span>
-            <ChevronDown />
-          </Button>
-        }
-      />
+        className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-1.5")}
+      >
+        <span className="max-w-[160px] truncate">{active?.name ?? "Watchlist"}</span>
+        <span className="text-muted-foreground">{active?.symbols.length ?? 0}</span>
+        <ChevronDown />
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         {watchlists.map((w) => (
           <DropdownMenuItem

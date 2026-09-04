@@ -1,11 +1,12 @@
 import { Newspaper } from "lucide-react";
 import type { RelatedNews } from "@/types";
-import { cx, fmtDateTime } from "@/utils/format";
+import { Badge } from "@/components/ui/badge";
+import { cn, fmtDateTime } from "@/utils/format";
 
-const SENTIMENT_CLS: Record<string, string> = {
-  positive: "text-gain border-gain/30 bg-gain/10",
-  negative: "text-risk border-risk/30 bg-risk/10",
-  neutral: "text-slate-400 border-white/10 bg-white/5",
+const SENTIMENT_TONE: Record<string, "positive" | "negative" | "secondary"> = {
+  positive: "positive",
+  negative: "negative",
+  neutral: "secondary",
 };
 
 export function NewsTimeline({
@@ -17,38 +18,40 @@ export function NewsTimeline({
 }) {
   if (!news.length) {
     return (
-      <p className="text-sm text-slate-500">
+      <p className="text-sm text-muted-foreground">
         No related local headlines in this window. If the price moved, it is currently unexplained.
       </p>
     );
   }
   const detection = detectionTs ? new Date(detectionTs).getTime() : null;
   return (
-    <ol className="relative space-y-3 border-l border-white/10 pl-4">
+    <ol className="relative space-y-3 border-l pl-4">
       {news.map((n) => {
         const t = new Date(n.timestamp).getTime();
         const after = detection !== null && t > detection;
         return (
           <li key={n.id} className="relative">
             <span
-              className={cx(
-                "absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-ink-900",
-                after ? "bg-attention" : "bg-neutralc",
+              className={cn(
+                "absolute -left-[21px] top-1.5 size-2.5 rounded-full border-2 border-background",
+                after ? "bg-warning" : "bg-primary",
               )}
             />
-            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+            <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
               <span className="font-mono">{fmtDateTime(n.timestamp)}</span>
-              <span className={cx("chip !py-0.5", SENTIMENT_CLS[n.sentiment_label] ?? SENTIMENT_CLS.neutral)}>
+              <Badge variant={SENTIMENT_TONE[n.sentiment_label] ?? "secondary"} className="h-4 px-1.5">
                 {n.sentiment_label}
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5">{n.event_type}</span>
-              {after && <span className="text-attention">after the move</span>}
+              </Badge>
+              <Badge variant="outline" className="h-4 px-1.5">
+                {n.event_type}
+              </Badge>
+              {after && <span className="text-warning-foreground">after the move</span>}
             </div>
-            <p className="mt-1 flex gap-2 text-sm text-slate-200">
-              <Newspaper className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />
+            <p className="mt-1 flex gap-2 text-sm text-foreground">
+              <Newspaper className="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
               {n.headline}
             </p>
-            <div className="mt-0.5 text-[11px] text-slate-600">source: {n.source}</div>
+            <div className="mt-0.5 text-[11px] text-muted-foreground">source: {n.source}</div>
           </li>
         );
       })}

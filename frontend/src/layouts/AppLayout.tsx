@@ -29,8 +29,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 const NAV = [
   { to: "/", label: "Investigation Room", icon: LayoutDashboard, end: true },
@@ -119,15 +120,13 @@ export function AppLayout() {
             <WatchlistSelector activeId={activeId} onChange={setActive} />
             <DropdownMenu>
               <DropdownMenuTrigger
-                render={
-                  <Button variant="ghost" size="sm" className="gap-2">
-                    <Avatar className="size-5">
-                      <AvatarFallback className="text-[10px]">{initials}</AvatarFallback>
-                    </Avatar>
-                    <span className="hidden sm:inline">{user.name}</span>
-                  </Button>
-                }
-              />
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "gap-2")}
+              >
+                <Avatar className="size-5">
+                  <AvatarFallback className="text-[10px]">{initials}</AvatarFallback>
+                </Avatar>
+                <span className="hidden sm:inline">{user.name}</span>
+              </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52">
                 <DropdownMenuLabel>
                   <div className="font-medium text-foreground">{user.name}</div>

@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { useStocks } from "@/hooks/queries";
 import type { StockMeta } from "@/types";
-import { cx } from "@/utils/format";
+import { cn } from "@/utils/format";
 
 export function StockSearch({
   onPick,
@@ -31,11 +31,11 @@ export function StockSearch({
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-ink-850 px-3 py-2.5">
-        <Search className="h-4 w-4 text-slate-500" />
+      <div className="flex h-8 items-center gap-2 rounded-none border bg-background px-2.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
+        <Search className="size-4 text-muted-foreground" />
         <input
           autoFocus={autoFocus}
-          className="w-full bg-transparent text-sm outline-none placeholder:text-slate-600"
+          className="w-full bg-transparent text-xs outline-none placeholder:text-muted-foreground"
           placeholder={placeholder}
           value={q}
           onChange={(e) => {
@@ -47,11 +47,13 @@ export function StockSearch({
         />
       </div>
       {open && results.length > 0 && (
-        <div className="glass absolute z-30 mt-2 max-h-72 w-full overflow-y-auto scrollbar-thin p-1.5">
+        <div className="absolute z-30 mt-1 max-h-72 w-full overflow-y-auto rounded-none border bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10">
           {results.map((s) => (
             <button
               key={s.symbol}
-              className={cx("flex w-full items-center justify-between rounded-lg px-3 py-2 text-left hover:bg-white/10")}
+              className={cn(
+                "flex w-full items-center justify-between rounded-none px-2 py-1.5 text-left text-xs hover:bg-accent hover:text-accent-foreground",
+              )}
               onMouseDown={() => {
                 onPick(s);
                 setQ("");
@@ -59,10 +61,10 @@ export function StockSearch({
               }}
             >
               <span>
-                <span className="font-mono text-sm font-bold">{s.symbol}</span>
-                <span className="ml-2 text-xs text-slate-500">{s.name}</span>
+                <span className="font-mono font-semibold">{s.symbol}</span>
+                <span className="ml-2 text-muted-foreground">{s.name}</span>
               </span>
-              <span className="text-[11px] text-slate-600">{s.sector_name}</span>
+              <span className="text-[11px] text-muted-foreground">{s.sector_name}</span>
             </button>
           ))}
         </div>
