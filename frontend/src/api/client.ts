@@ -1,19 +1,19 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "/api";
 
-const USER_KEY = "market_detective.user_id";
+const TOKEN_KEY = "cadence.auth_token";
 
-export function getStoredUserId(): string | null {
+export function getStoredToken(): string | null {
   try {
-    return localStorage.getItem(USER_KEY);
+    return localStorage.getItem(TOKEN_KEY);
   } catch {
     return null;
   }
 }
 
-export function setStoredUserId(id: string | null): void {
+export function setStoredToken(token: string | null): void {
   try {
-    if (id) localStorage.setItem(USER_KEY, id);
-    else localStorage.removeItem(USER_KEY);
+    if (token) localStorage.setItem(TOKEN_KEY, token);
+    else localStorage.removeItem(TOKEN_KEY);
   } catch {
     /* ignore */
   }
@@ -46,8 +46,8 @@ export async function apiFetch<T>(path: string, opts: RequestOptions = {}): Prom
   }
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (auth) {
-    const uid = getStoredUserId();
-    if (uid) headers["X-User-Id"] = uid;
+    const token = getStoredToken();
+    if (token) headers["Authorization"] = `Bearer ${token}`;
   }
 
   const res = await fetch(url.toString().replace(window.location.origin, ""), {

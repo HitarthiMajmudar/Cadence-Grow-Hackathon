@@ -1,5 +1,6 @@
 import { apiFetch } from "./client";
 import type {
+  AuthResponse,
   Briefing,
   CaseDetail,
   CaseListResponse,
@@ -10,6 +11,9 @@ import type {
   DemoClock,
   ClockAdvanceResult,
   Health,
+  LiveHistoryResponse,
+  LiveQuote,
+  LiveSymbolMatch,
   RelatedNews,
   ReplayResponse,
   StockMeta,
@@ -23,12 +27,20 @@ import type {
 export const api = {
   health: () => apiFetch<Health>("/health", { auth: false }),
 
-  demoLogin: (name: string, email: string) =>
-    apiFetch<User>("/auth/demo-login", { method: "POST", body: { name, email }, auth: false }),
+  signup: (name: string, email: string, password: string) =>
+    apiFetch<AuthResponse>("/auth/signup", { method: "POST", body: { name, email, password }, auth: false }),
+  login: (email: string, password: string) =>
+    apiFetch<AuthResponse>("/auth/login", { method: "POST", body: { email, password }, auth: false }),
+  logout: () => apiFetch<void>("/auth/logout", { method: "POST" }),
   me: () => apiFetch<User>("/auth/me"),
-  demoAccounts: () => apiFetch<User[]>("/auth/demo-accounts", { auth: false }),
   updatePreferences: (body: Record<string, unknown>) =>
     apiFetch<User>("/auth/me/preferences", { method: "PATCH", body }),
+
+  liveSearch: (q: string) => apiFetch<LiveSymbolMatch[]>("/live/search", { params: { q } }),
+  liveQuote: (symbol: string, exchange?: string) =>
+    apiFetch<LiveQuote>(`/live/${symbol}/quote`, { params: { exchange } }),
+  liveHistory: (symbol: string, exchange?: string, outputsize = 180) =>
+    apiFetch<LiveHistoryResponse>(`/live/${symbol}/history`, { params: { exchange, outputsize } }),
 
   stocks: () => apiFetch<StockMeta[]>("/stocks", { auth: false }),
   searchStocks: (q: string) => apiFetch<StockMeta[]>("/stocks/search", { params: { q }, auth: false }),

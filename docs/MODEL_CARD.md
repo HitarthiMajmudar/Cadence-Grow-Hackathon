@@ -1,10 +1,13 @@
-# Model Card — Market Detective analysis engine
+# Model Card — CADENCE Detective Mode analysis engine
 
 ## Overview
 
-Market Detective's "engine" is a pipeline of **small, local, deterministic**
+Detective Mode's "engine" is a pipeline of **small, local, deterministic**
 models that turn a price/volume/news dataset into ranked, explained Investigation
-Cases. There is **no LLM** and **no external service** anywhere in the pipeline.
+Cases. There is **no LLM** and **no external service** anywhere in this pipeline.
+(CADENCE's separate Live Markets feature does call an external API — Twelve
+Data — for real quotes, but it never touches this engine: no Attention Score,
+no anomaly detection, no verdict is computed for live-searched symbols.)
 
 | Stage | Method | Role |
 | --- | --- | --- |

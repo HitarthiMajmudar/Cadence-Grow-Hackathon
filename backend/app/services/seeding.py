@@ -16,21 +16,9 @@ from app.repositories.market import (
     NewsRepository,
     StockFeatureRepository,
 )
-from app.repositories.snapshots import DemoClockRepository, VisitSnapshotRepository
-from app.repositories.users import UserRepository
-from app.repositories.watchlists import WatchlistRepository
 from app.services.analysis_engine import AnalysisEngine
 
 logger = logging.getLogger("market_detective.seed")
-
-SEEDED_ACCOUNTS = [
-    ("Demo Detective", "detective@marketdetective.app",
-     ["RELIANCE", "TCS", "HDFCBANK", "TATAMOTORS", "INFY", "ITC", "ICICIBANK", "SBIN"]),
-    ("Ridhi (Swing Trader)", "ridhi@marketdetective.app",
-     ["TATAMOTORS", "MARUTI", "M&M", "RELIANCE", "SBIN"]),
-    ("Arjun (Long-term)", "arjun@marketdetective.app",
-     ["HDFCBANK", "ICICIBANK", "TCS", "INFY", "HINDUNILVR", "NESTLEIND"]),
-]
 
 FEATURE_STORE_COLUMNS = [
     "symbol", "timestamp", "company_name", "sector", "close", "volume",
@@ -95,49 +83,12 @@ async def seed_market_data(engine: AnalysisEngine) -> dict:
             "quality_events": n_dq, "cases": n_cases}
 
 
-async def seed_demo_accounts(engine: AnalysisEngine) -> int:
-    """Idempotently create the seeded demo users, their watchlists, a baseline
-    snapshot and their demo clock."""
-    users = UserRepository()
-    watchlists = WatchlistRepository()
-    clock = DemoClockRepository()
-    snapshots = VisitSnapshotRepository()
-    cases_repo = CaseRepository()
-    present = pd.Timestamp(engine.meta["demo_present_timestamp"])
-    present_dt = present.to_pydatetime()
-
-    created = 0
-    for name, email, symbols in SEEDED_ACCOUNTS:
-        user, _ = await users.get_or_create(name, email, is_seeded=True)
-        if await watchlists.list_for_user(user["_id"]):
-            await clock.ensure(user["_id"], present_dt)
-            continue
-        wl = await watchlists.create(user["_id"], "My Watchlist", symbols,
-                                     attention_threshold=55, daily_attention_budget="top_3")
-        await users.update_preferences(user["_id"], {"default_watchlist_id": wl["_id"]})
-        states = []
-        for sym in symbols:
-            s = engine.state_at(sym, present)
-            states.append({"symbol": sym, "price": s["price"],
-                           "attention_score": s["attention_score"], "severity": s["severity"],
-                           "freshness": s["freshness"], "verdict": s["verdict"]})
-        base_cases = await cases_repo.list_up_to(present_dt, symbols=symbols)
-        await snapshots.acknowledge(
-            user_id=user["_id"], watchlist_id=wl["_id"], dataset_timestamp=present_dt,
-            stock_states=states, seen_case_ids=[c["case_id"] for c in base_cases],
-            attention_threshold=55, daily_attention_budget="top_3",
-        )
-        await clock.ensure(user["_id"], present_dt)
-        created += 1
-    logger.info("seeded %d new demo accounts", created)
-    return created
-
-
 async def auto_seed_if_empty(engine: AnalysisEngine) -> bool:
-    """Called from the app lifespan. Seeds only if the cases collection is empty."""
+    """Called from the app lifespan. Seeds only the shared market dataset (no
+    accounts — those are created by real signup) if the cases collection is
+    empty."""
     if await CaseRepository().count() > 0:
         return False
     logger.info("cases collection empty — auto-seeding …")
     await seed_market_data(engine)
-    await seed_demo_accounts(engine)
     return True

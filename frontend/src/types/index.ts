@@ -24,7 +24,54 @@ export interface User {
   created_at: string;
   last_login_at: string;
   preferences: UserPreferences;
-  is_seeded: boolean;
+}
+
+export interface AuthResponse {
+  access_token: string;
+  token_type: string;
+  user: User;
+}
+
+export interface LiveSymbolMatch {
+  symbol: string;
+  name: string;
+  exchange: string;
+  mic_code: string | null;
+  country: string | null;
+  currency: string | null;
+  instrument_type: string | null;
+}
+
+export interface LiveQuote {
+  symbol: string;
+  name: string;
+  exchange: string;
+  currency: string | null;
+  price: number;
+  previous_close: number | null;
+  change: number | null;
+  change_pct: number | null;
+  day_high: number | null;
+  day_low: number | null;
+  volume: number | null;
+  is_market_open: boolean | null;
+  as_of: string | null;
+}
+
+export interface LiveCandle {
+  date: string;
+  open: number | null;
+  high: number | null;
+  low: number | null;
+  close: number | null;
+  volume: number | null;
+}
+
+export interface LiveHistoryResponse {
+  symbol: string;
+  exchange: string | null;
+  interval: string;
+  candles: LiveCandle[];
 }
 
 export interface StockMeta {

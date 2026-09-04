@@ -31,7 +31,7 @@ export function StoryCardPage() {
       const url = await toPng(ref.current, { pixelRatio: 2, cacheBust: true });
       const a = document.createElement("a");
       a.href = url;
-      a.download = `market-detective-${data?.symbol ?? "case"}.png`;
+      a.download = `cadence-${data?.symbol ?? "case"}.png`;
       a.click();
     } catch {
       setErr("PNG export not available in this browser — use Print instead.");

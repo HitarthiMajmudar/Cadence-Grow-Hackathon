@@ -1,8 +1,8 @@
 {
-  "name": "market-detective",
+  "name": "cadence",
   "version": "1.0.0",
   "private": true,
-  "description": "Your stocks moved. We investigated why. — an educational, offline, evidence-backed market-analysis prototype.",
+  "description": "cause every market move has a rhythm — an educational market-analysis prototype with a synthetic Detective Mode dataset and live quotes via Twelve Data.",
   "scripts": {
     "dev:backend": "cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000",
     "dev:frontend": "cd frontend && npm run dev",

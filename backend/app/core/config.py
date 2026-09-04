@@ -25,9 +25,9 @@ class Settings(BaseSettings):
     # -- persistence ------------------------------------------------------- #
     db_backend: Literal["auto", "mongo", "memory"] = "auto"
     mongodb_uri: str | None = None
-    mongodb_db_name: str = "market_detective"
+    mongodb_db_name: str = "cadence"
     mongodb_test_uri: str | None = None
-    mongodb_test_db_name: str = "market_detective_test"
+    mongodb_test_db_name: str = "cadence_test"
     local_store_dir: str = ".local_store"
 
     # -- api ------------------------------------------------------------- #
@@ -38,8 +38,15 @@ class Settings(BaseSettings):
 
     # -- demo dataset / clock ------------------------------------------- #
     demo_clock_advance_bars: int = 18
-    demo_user_email: str = "detective@marketdetective.app"
-    demo_user_name: str = "Demo Detective"
+
+    # -- auth -------------------------------------------------------------- #
+    jwt_secret_key: str | None = None
+    jwt_algorithm: str = "HS256"
+    jwt_access_token_minutes: int = 60 * 24 * 14  # 14 days, no refresh-token flow
+
+    # -- live market data (Twelve Data) ------------------------------------ #
+    twelve_data_api_key: str | None = None
+    twelve_data_base_url: str = "https://api.twelvedata.com"
 
     # -- test-safety guard ------------------------------------------------ #
     market_detective_allow_unsafe_test_db: bool = False
@@ -94,6 +101,19 @@ def validate_startup(settings: Settings | None = None) -> list[str]:
         raise RuntimeError(
             "DB_BACKEND=mongo but MONGODB_URI is not set. "
             "Set MONGODB_URI or use DB_BACKEND=memory / auto."
+        )
+
+    if settings.app_env == "prod" and not settings.jwt_secret_key:
+        raise RuntimeError(
+            "APP_ENV=prod but JWT_SECRET_KEY is not set. Set a strong random "
+            "secret (e.g. `openssl rand -hex 32`) before running in production."
+        )
+
+    if not settings.twelve_data_api_key:
+        warnings.append(
+            "TWELVE_DATA_API_KEY is not set. Live Markets will respond with "
+            "503 market_data_not_configured until it is provided; Detective "
+            "Mode is unaffected."
         )
 
     if settings.effective_backend == "memory":

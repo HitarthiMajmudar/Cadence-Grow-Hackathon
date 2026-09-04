@@ -1,7 +1,7 @@
 # Three-minute judging demo
 
 > Have the backend + frontend running and open on the **Login** page.
-> Sign in as **Demo Detective** (or the seeded-account button). The dataset
+> Sign up (or log back in) with a name, email and password. The dataset
 > "present" is **04 Jul 2025 15:15**; each **Advance Market Time** click jumps
 > **18 simulated market hours** (≈ 2½ trading sessions).
 
@@ -9,14 +9,15 @@
 
 ## 0:00 – 0:30 · The pitch
 
-> "A normal watchlist tells you a stock *moved*. **Market Detective** tells you
+> "A normal watchlist tells you a stock *moved*. **CADENCE** tells you
 > whether the movement was *unusual*, what *evidence* explains it, and whether it
 > actually *deserves your attention* — and it remembers what you saw last time so
 > it can brief you on what you missed."
 
-Point at the top bar: **Offline Research Dataset**, **Replay / Demo Mode**, and the
-**simulated market clock**. "No live APIs, no LLM — everything is a local model
-over a reproducible synthetic dataset."
+Point at the top bar: **Offline Research Dataset** and the **Simulated Market
+Clock** badges. "Detective Mode is a local model over a reproducible synthetic
+dataset — no live APIs, no LLM. Separately, Live Markets gives you real quotes
+for any stock, worldwide."
 
 ## 0:30 – 1:00 · Since You Left
 
@@ -70,14 +71,21 @@ data-quality context on a case.
 > research source was used, and **confidence was reduced** — the score wasn't
 > inflated, the *confidence* was cut, and the conflict is shown to the user."
 
-## 2:50 – 3:00 · Change Story Card + close
+## 2:50 – 3:00 · Change Story Card, Live Markets, and close
 
 On any case click **Story Card → Download PNG**.
 
 > "A shareable card — company, event date, Attention Score, verdict, the main
-> evidence, a sparkline, and the disclaimer. Rendered entirely in the browser.
+> evidence, a sparkline, and the disclaimer. Rendered entirely in the browser."
+
+Switch to **Live Markets**, search any real symbol (e.g. **AAPL**, or an NSE
+stock like **RELIANCE**), and show the live price + daily chart.
+
+> "This is real — a live quote via Twelve Data, not the synthetic dataset. No
+> Attention Score here on purpose: it's a plain quote lookup, kept deliberately
+> separate from Detective Mode's engine.
 >
-> **Your stocks moved. We investigated why.**"
+> **Cause every market move has a rhythm.**"
 
 ---
 
@@ -85,7 +93,7 @@ On any case click **Story Card → Download PNG**.
 
 | If a judge asks… | Say |
 | --- | --- |
-| "Is this real data?" | No — synthetic, seed 42, generated locally. The badge says so everywhere. Structure is realistic; identity is not. |
+| "Is this real data?" | Detective Mode: no — synthetic, seed 42, generated locally. The badge says so everywhere. Structure is realistic; identity is not. Live Markets: yes — real quotes via the Twelve Data API, kept in a separate feature with no Attention Score. |
 | "How is 'meaningful' defined?" | Not a % threshold — unusual vs. the stock's *own* robust (median/MAD) history, or several independent signals agreeing. |
 | "Where's the ML?" | Robust statistical scoring (primary) + Isolation Forest (supporting) + TF-IDF/LogReg news sentiment + a deterministic verdict tree. All local, all explainable. |
 | "Does it give advice?" | Never. It's an educational analysis tool; the disclaimer is on every screen and every card. |

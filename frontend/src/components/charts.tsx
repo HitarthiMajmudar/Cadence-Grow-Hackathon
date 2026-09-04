@@ -16,7 +16,7 @@ import {
 import { fmtDateTime, money } from "@/utils/format";
 import { useChartColors } from "@/lib/chart-colors";
 
-function ChartTooltip({ active, payload, label, unit }: any) {
+function ChartTooltip({ active, payload, label, unit, currencySymbol }: any) {
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-md border bg-popover px-3 py-2 text-xs text-popover-foreground shadow-md">
@@ -27,7 +27,9 @@ function ChartTooltip({ active, payload, label, unit }: any) {
           <span className="text-muted-foreground">{p.name}</span>
           <span className="ml-auto font-semibold">
             {unit === "money"
-              ? money(p.value)
+              ? currencySymbol
+                ? `${currencySymbol}${typeof p.value === "number" ? p.value.toFixed(2) : p.value}`
+                : money(p.value)
               : typeof p.value === "number"
                 ? p.value.toFixed(2)
                 : p.value}
@@ -49,11 +51,15 @@ export function PriceChart({
   anomalies = [],
   newsMarks = [],
   height = 240,
+  currencySymbol,
 }: {
   data: { timestamp: string; close: number | null }[];
   anomalies?: AnomalyMark[];
   newsMarks?: { timestamp: string }[];
   height?: number;
+  /** Overrides the default (Detective Mode's dataset is always INR). Live
+   * Markets passes the quote's actual currency symbol here. */
+  currencySymbol?: string;
 }) {
   const c = useChartColors();
   const axis = { fontSize: 11, fill: c.axis };
@@ -76,9 +82,9 @@ export function PriceChart({
           width={54}
           axisLine={false}
           tickLine={false}
-          tickFormatter={(v) => `₹${Math.round(v)}`}
+          tickFormatter={(v) => `${currencySymbol ?? "₹"}${Math.round(v)}`}
         />
-        <Tooltip content={<ChartTooltip unit="money" />} />
+        <Tooltip content={<ChartTooltip unit="money" currencySymbol={currencySymbol} />} />
         <Area
           type="monotone"
           dataKey="close"

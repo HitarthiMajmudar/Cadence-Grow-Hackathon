@@ -18,7 +18,7 @@ from app.core.logging import configure_logging
 from app.data import loader
 from app.db.client import database
 from app.services.analysis_engine import get_engine, reset_engine
-from app.services.seeding import seed_demo_accounts, seed_market_data
+from app.services.seeding import seed_market_data
 
 logger = logging.getLogger("market_detective.seed")
 
@@ -45,7 +45,6 @@ async def seed(*, fresh: bool, use_test_db: bool) -> None:
 
     engine = get_engine()
     await seed_market_data(engine)
-    await seed_demo_accounts(engine)
 
     database.set_autoflush(True)
     database.flush()
@@ -55,7 +54,7 @@ async def seed(*, fresh: bool, use_test_db: bool) -> None:
 
 def main() -> None:
     configure_logging()
-    ap = argparse.ArgumentParser(description="Seed the Market Detective database")
+    ap = argparse.ArgumentParser(description="Seed the CADENCE database")
     ap.add_argument("--fresh", action="store_true", help="regenerate the offline dataset first")
     ap.add_argument("--test", action="store_true", help="seed the TEST database")
     args = ap.parse_args()

@@ -18,6 +18,31 @@ export function compactNumber(v: number | null | undefined): string {
   return INR0.format(v);
 }
 
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  INR: "₹",
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  JPY: "¥",
+  CNY: "¥",
+  HKD: "HK$",
+  AUD: "A$",
+  CAD: "C$",
+  SGD: "S$",
+};
+
+/** Live Markets covers arbitrary global symbols — unlike `money()`, which is
+ * intentionally INR-only for Detective Mode's Indian-equities dataset. */
+export function currencySymbol(code: string | null | undefined): string {
+  if (!code) return "";
+  return CURRENCY_SYMBOLS[code.toUpperCase()] ?? `${code.toUpperCase()} `;
+}
+
+export function moneyIn(v: number | null | undefined, currencyCode: string | null | undefined): string {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  return `${currencySymbol(currencyCode)}${INR.format(v)}`;
+}
+
 export function pct(v: number | null | undefined, digits = 2): string {
   if (v === null || v === undefined || Number.isNaN(v)) return "—";
   return `${v > 0 ? "+" : ""}${v.toFixed(digits)}%`;

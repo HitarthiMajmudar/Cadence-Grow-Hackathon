@@ -8,6 +8,7 @@ import { TimeMachinePage } from "@/pages/TimeMachinePage";
 import { WatchlistsPage } from "@/pages/WatchlistsPage";
 import { StocksPage } from "@/pages/StocksPage";
 import { StoryCardPage } from "@/pages/StoryCardPage";
+import { LiveQuotePage } from "@/pages/LiveQuotePage";
 
 export default function App() {
   return (
@@ -22,6 +23,8 @@ export default function App() {
         <Route path="/cases/:caseId" element={<CaseDetailPage />} />
         <Route path="/time-machine" element={<TimeMachinePage />} />
         <Route path="/time-machine/:symbol" element={<TimeMachinePage />} />
+        <Route path="/live" element={<LiveQuotePage />} />
+        <Route path="/live/:symbol" element={<LiveQuotePage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

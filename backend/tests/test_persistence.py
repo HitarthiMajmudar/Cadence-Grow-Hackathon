@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import pytest
 
+from app.core.errors import ConflictError
 from app.repositories.snapshots import DemoClockRepository, VisitSnapshotRepository
 from app.repositories.users import UserRepository, normalize_email
 from app.repositories.watchlists import WatchlistRepository
@@ -10,14 +11,19 @@ from app.repositories.watchlists import WatchlistRepository
 pytestmark = pytest.mark.asyncio
 
 
-async def test_demo_user_create_and_retrieve(repos, unique_email):
+async def test_user_create_and_retrieve(repos, unique_email):
     users = UserRepository()
-    u1, created1 = await users.get_or_create("Ada", unique_email)
-    assert created1 is True
-    u2, created2 = await users.get_or_create("Ada Lovelace", unique_email.upper())
-    assert created2 is False
-    assert u1["_id"] == u2["_id"]  # case-insensitive email match
-    assert u2["name"] == "Ada Lovelace"
+    u1 = await users.create("Ada", unique_email, "hashed-pw")
+    assert u1["email_normalized"] == normalize_email(unique_email)
+    fetched = await users.by_email(unique_email)
+    assert fetched["_id"] == u1["_id"]
+
+
+async def test_duplicate_email_rejected_case_insensitively(repos, unique_email):
+    users = UserRepository()
+    await users.create("Ada", unique_email, "hashed-pw")
+    with pytest.raises(ConflictError):
+        await users.create("Ada Lovelace", unique_email.upper(), "hashed-pw")
 
 
 async def test_unique_email_index_enforced(repos, unique_email):
@@ -31,7 +37,7 @@ async def test_unique_email_index_enforced(repos, unique_email):
 
 async def test_watchlist_crud(repos, unique_email):
     users = UserRepository()
-    u, _ = await users.get_or_create("Sam", unique_email)
+    u = await users.create("Sam", unique_email, "hashed-pw")
     wr = WatchlistRepository()
 
     wl = await wr.create(u["_id"], "Core", ["RELIANCE", "reliance", "TCS"])
@@ -54,8 +60,8 @@ async def test_watchlist_crud(repos, unique_email):
 
 async def test_watchlist_isolation_between_users(repos):
     users = UserRepository()
-    a, _ = await users.get_or_create("A", "a@x.com")
-    b, _ = await users.get_or_create("B", "b@x.com")
+    a = await users.create("A", "a@x.com", "hashed-pw")
+    b = await users.create("B", "b@x.com", "hashed-pw")
     wr = WatchlistRepository()
     wl = await wr.create(a["_id"], "A list", ["TCS"])
     assert await wr.get_for_user(b["_id"], wl["_id"]) is None
@@ -63,7 +69,7 @@ async def test_watchlist_isolation_between_users(repos):
 
 async def test_snapshot_persists_and_is_latest(repos):
     users = UserRepository()
-    u, _ = await users.get_or_create("Snap", "snap@x.com")
+    u = await users.create("Snap", "snap@x.com", "hashed-pw")
     wr = WatchlistRepository()
     wl = await wr.create(u["_id"], "L", ["TCS"])
     snaps = VisitSnapshotRepository()

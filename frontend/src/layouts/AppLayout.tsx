@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { LayoutDashboard, ListChecks, LogOut, Rewind, Search } from "lucide-react";
+import { LayoutDashboard, ListChecks, LogOut, Radar, Rewind, Search } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useHealth } from "@/hooks/queries";
 import { OfflineDatasetBadge, DemoModeBadge } from "@/components/badges";
@@ -38,6 +38,7 @@ const NAV = [
   { to: "/watchlists", label: "Watchlists", icon: ListChecks, end: false },
   { to: "/time-machine", label: "Time Machine", icon: Rewind, end: false },
   { to: "/stocks", label: "Stocks", icon: Search, end: false },
+  { to: "/live", label: "Live Markets", icon: Radar, end: false },
 ];
 
 export function AppLayout() {
@@ -73,8 +74,8 @@ export function AppLayout() {
           <Link to="/" className="flex items-center gap-2 px-1 py-1.5">
             <img src="/detective.svg" alt="" className="size-6 shrink-0" />
             <div className="leading-tight group-data-[collapsible=icon]:hidden">
-              <div className="text-sm font-semibold tracking-tight">Market Detective</div>
-              <div className="text-xs text-muted-foreground">We investigated why.</div>
+              <div className="text-sm font-semibold tracking-tight">CADENCE</div>
+              <div className="text-xs text-muted-foreground">every market move has a rhythm.</div>
             </div>
           </Link>
         </SidebarHeader>
@@ -107,7 +108,9 @@ export function AppLayout() {
               <DemoModeBadge />
             </div>
             <p className="text-[11px] leading-snug text-muted-foreground">
-              Educational prototype. Synthetic data — not live market data. Not investment advice.
+              Educational prototype. Detective Mode runs on a synthetic research dataset — not
+              live market data. Live Markets shows real quotes via Twelve Data. Not investment
+              advice.
             </p>
           </div>
         </SidebarFooter>

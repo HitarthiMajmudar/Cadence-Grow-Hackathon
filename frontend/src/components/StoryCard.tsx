@@ -16,9 +16,9 @@ export const StoryCard = forwardRef<HTMLDivElement, { data: StoryCardData }>(({ 
             <span className="text-sm">🔍</span>
           </div>
           <div>
-            <div className="text-xs font-semibold tracking-tight">MARKET DETECTIVE</div>
+            <div className="text-xs font-semibold tracking-tight">CADENCE</div>
             <div className="text-[10px] text-muted-foreground">
-              Your stocks moved. We investigated why.
+              cause every market move has a rhythm
             </div>
           </div>
         </div>

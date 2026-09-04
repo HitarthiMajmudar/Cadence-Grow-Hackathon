@@ -1,4 +1,4 @@
-import { Activity, Database, Radio } from "lucide-react";
+import { Activity, Database, Radio, Wifi } from "lucide-react";
 import type { Freshness } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { cn, freshnessMeta, verdictTone } from "@/utils/format";
@@ -42,9 +42,22 @@ export function OfflineDatasetBadge({ label }: { label?: string }) {
 
 export function DemoModeBadge() {
   return (
-    <Badge variant="warning" className="gap-1" title="Replay / demo mode — the market clock is simulated.">
+    <Badge variant="warning" className="gap-1" title="The market clock is simulated, not live.">
       <Radio />
-      Replay / Demo Mode
+      Simulated Market Clock
+    </Badge>
+  );
+}
+
+export function LiveDataBadge() {
+  return (
+    <Badge
+      variant="positive"
+      className="gap-1"
+      title="Real quotes fetched live from Twelve Data — no Attention Score or anomaly detection here."
+    >
+      <Wifi />
+      Live via Twelve Data
     </Badge>
   );
 }

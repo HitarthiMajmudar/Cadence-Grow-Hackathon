@@ -65,6 +65,34 @@ export const useReplay = (s?: string, lookback = 90) =>
 export const useDatasetHealth = () =>
   useQuery({ queryKey: qk.datasetHealth, queryFn: api.datasetHealth });
 
+// --- Live Markets — real quotes via Twelve Data, entirely separate from the
+// Detective Mode dataset above (no Attention Score, no clock, no watchlist). ---
+export const useLiveSearch = (q: string) =>
+  useQuery({
+    queryKey: ["live-search", q],
+    queryFn: () => api.liveSearch(q),
+    enabled: q.trim().length > 0,
+    staleTime: 60_000,
+    retry: false,
+  });
+export const useLiveQuote = (symbol?: string, exchange?: string) =>
+  useQuery({
+    queryKey: ["live-quote", symbol ?? "", exchange ?? ""],
+    queryFn: () => api.liveQuote(symbol!, exchange),
+    enabled: !!symbol,
+    staleTime: 30_000,
+    refetchInterval: 30_000,
+    retry: false,
+  });
+export const useLiveHistory = (symbol?: string, exchange?: string) =>
+  useQuery({
+    queryKey: ["live-history", symbol ?? "", exchange ?? ""],
+    queryFn: () => api.liveHistory(symbol!, exchange),
+    enabled: !!symbol,
+    staleTime: 6 * 60 * 60_000,
+    retry: false,
+  });
+
 export function useAdvanceClock() {
   const qc = useQueryClient();
   return useMutation({

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from app.core.errors import ConflictError
 from app.repositories.base import BaseRepository, new_id, utcnow
 
 
@@ -19,34 +20,28 @@ DEFAULT_PREFERENCES = {
 class UserRepository(BaseRepository):
     collection_name = "users"
 
-    async def get_or_create(self, name: str, email: str, *, is_seeded: bool = False) -> tuple[dict, bool]:
+    async def create(self, name: str, email: str, password_hash: str) -> dict:
         norm = normalize_email(email)
-        existing = await self.find_one({"email_normalized": norm})
-        if existing:
-            await self.update(
-                {"_id": existing["_id"]},
-                {"last_login_at": utcnow(), "name": name or existing["name"]},
-            )
-            existing["last_login_at"] = utcnow()
-            if name:
-                existing["name"] = name
-            return existing, False
-
+        if await self.find_one({"email_normalized": norm}):
+            raise ConflictError("An account with this email already exists.")
         doc = {
             "_id": new_id(),
             "name": name,
             "email": email.strip(),
             "email_normalized": norm,
+            "password_hash": password_hash,
             "created_at": utcnow(),
             "last_login_at": utcnow(),
             "preferences": dict(DEFAULT_PREFERENCES),
-            "is_seeded": is_seeded,
         }
         await self.insert(doc)
-        return doc, True
+        return doc
 
     async def by_email(self, email: str) -> dict | None:
         return await self.find_one({"email_normalized": normalize_email(email)})
+
+    async def touch_login(self, user_id: str) -> None:
+        await self.update({"_id": user_id}, {"last_login_at": utcnow()})
 
     async def update_preferences(self, user_id: str, changes: dict) -> dict:
         user = await self.get(user_id)
@@ -57,6 +52,3 @@ class UserRepository(BaseRepository):
         await self.update({"_id": user_id}, {"preferences": prefs, "last_login_at": utcnow()})
         user["preferences"] = prefs
         return user
-
-    async def list_seeded(self) -> list[dict]:
-        return await self.find({"is_seeded": True}, sort=[("created_at", 1)])

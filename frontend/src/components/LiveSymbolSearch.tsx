@@ -1,46 +1,48 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
-import { Search } from "lucide-react";
-import { useStocks } from "@/hooks/queries";
-import type { StockMeta } from "@/types";
+import { Loader2, Search } from "lucide-react";
+import { useLiveSearch } from "@/hooks/queries";
+import type { LiveSymbolMatch } from "@/types";
 import { cn } from "@/utils/format";
 
-export function StockSearch({
+/** Sibling of StockSearch, but backed by the live Twelve Data symbol search
+ * instead of the curated Detective Mode dataset — kept separate so this page
+ * can never accidentally search the offline 15-stock universe, and vice
+ * versa. Uses the same portal-based dropdown so results are never clipped by
+ * an ancestor's `overflow-hidden`. */
+export function LiveSymbolSearch({
   onPick,
-  exclude = [],
-  placeholder = "Search by symbol or company…",
+  placeholder = "Search any stock — India or worldwide…",
   autoFocus = false,
 }: {
-  onPick: (s: StockMeta) => void;
-  exclude?: string[];
+  onPick: (s: LiveSymbolMatch) => void;
   placeholder?: string;
   autoFocus?: boolean;
 }) {
-  const { data: stocks = [] } = useStocks();
   const [q, setQ] = useState("");
+  const [debounced, setDebounced] = useState("");
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
 
-  const results = useMemo(() => {
-    const term = q.trim().toLowerCase();
-    return stocks
-      .filter((s) => !exclude.includes(s.symbol))
-      .filter((s) =>
-        !term ? true : `${s.symbol} ${s.name} ${s.sector_name}`.toLowerCase().includes(term),
-      )
-      .slice(0, 8);
-  }, [stocks, q, exclude]);
+  useEffect(() => {
+    const t = setTimeout(() => setDebounced(q.trim()), 300);
+    return () => clearTimeout(t);
+  }, [q]);
 
-  // Rendered via a Popover portal (rather than an in-place absolute div) so
-  // the results list can never be clipped by an ancestor's `overflow-hidden`
-  // (e.g. the Card this is usually placed inside).
+  const { data: results = [], isFetching, isError, error } = useLiveSearch(debounced);
+  const showPanel = open && debounced.length > 0;
+
   return (
-    <PopoverPrimitive.Root open={open && results.length > 0} onOpenChange={setOpen}>
+    <PopoverPrimitive.Root open={showPanel} onOpenChange={setOpen}>
       <div
         ref={anchorRef}
         className="flex h-8 items-center gap-2 rounded-none border bg-background px-2.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50"
       >
-        <Search className="size-4 text-muted-foreground" />
+        {isFetching ? (
+          <Loader2 className="size-4 animate-spin text-muted-foreground" />
+        ) : (
+          <Search className="size-4 text-muted-foreground" />
+        )}
         <input
           autoFocus={autoFocus}
           className="w-full bg-transparent text-xs outline-none placeholder:text-muted-foreground"
@@ -63,9 +65,19 @@ export function StockSearch({
           className="isolate z-50"
         >
           <PopoverPrimitive.Popup className="max-h-72 w-(--anchor-width) overflow-y-auto rounded-none border bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none">
-            {results.map((s) => (
+            {isError && (
+              <div className="px-2 py-3 text-center text-xs text-destructive">
+                {(error as Error)?.message ?? "Couldn't search live symbols."}
+              </div>
+            )}
+            {!isError && results.length === 0 && !isFetching && (
+              <div className="px-2 py-3 text-center text-xs text-muted-foreground">
+                No matches for "{debounced}"
+              </div>
+            )}
+            {results.slice(0, 8).map((s) => (
               <button
-                key={s.symbol}
+                key={`${s.symbol}-${s.exchange}`}
                 className={cn(
                   "flex w-full items-center justify-between rounded-none px-2 py-1.5 text-left text-xs hover:bg-accent hover:text-accent-foreground",
                 )}
@@ -79,7 +91,7 @@ export function StockSearch({
                   <span className="font-mono font-semibold">{s.symbol}</span>
                   <span className="ml-2 text-muted-foreground">{s.name}</span>
                 </span>
-                <span className="text-[11px] text-muted-foreground">{s.sector_name}</span>
+                <span className="text-[11px] text-muted-foreground">{s.exchange}</span>
               </button>
             ))}
           </PopoverPrimitive.Popup>

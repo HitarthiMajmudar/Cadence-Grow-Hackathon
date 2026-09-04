@@ -1,17 +1,23 @@
-# 🔍 Market Detective
+# 🔍 CADENCE
 
-> **"Your stocks moved. We investigated why."**
+> **"cause every market move has a rhythm"**
 
-Market Detective is **not a stock watchlist**. It remembers what you saw on your
+CADENCE is **not a stock watchlist**. It remembers what you saw on your
 last visit and investigates what has *meaningfully* changed since then — turning
 important movements into evidence-backed **Investigation Cases**, ranking them by
 how urgently they deserve your attention, and replaying the story in an animated
 **Market Time Machine**.
 
-It is an **educational, research-oriented market-analysis tool**. It never gives
-buy / sell / hold recommendations, and it uses **no external market, news or LLM
-APIs** — every price, headline and model runs locally from a reproducible
-synthetic dataset.
+It ships with two clearly separated modes:
+
+- **Detective Mode** — the educational, research-oriented analysis engine above.
+  It never gives buy / sell / hold recommendations, and it uses **no external
+  market, news or LLM APIs** — every price, headline and model runs locally from
+  a reproducible synthetic dataset.
+- **Live Markets** — a separate feature that fetches **real** quotes and daily
+  charts for any symbol (India or worldwide) via the [Twelve Data](https://twelvedata.com)
+  API. It has no Attention Score, anomaly detection, or Evidence Court — it's a
+  plain live-quote lookup, kept intentionally apart from Detective Mode's engine.
 
 ---
 
@@ -19,7 +25,7 @@ synthetic dataset.
 
 1. [Problem statement](#problem-statement)
 2. [The solution](#the-solution)
-3. [Why Market Detective is different](#why-market-detective-is-different)
+3. [Why CADENCE is different](#why-cadence-is-different)
 4. [Main features](#main-features)
 5. [The Market Time Machine](#the-market-time-machine)
 6. [Architecture](#architecture)
@@ -36,7 +42,8 @@ synthetic dataset.
 17. [Tests & builds](#tests--builds)
 18. [Three-minute demo flow](#three-minute-demo-flow)
 19. [Scalability strategy](#scalability-strategy)
-20. [Educational disclaimer](#educational-disclaimer)
+20. [Deployment (Render + Vercel)](#deployment-render--vercel)
+21. [Educational disclaimer](#educational-disclaimer)
 
 ---
 
@@ -50,7 +57,7 @@ that happened while they were away.
 
 ## The solution
 
-Market Detective takes a snapshot of what you saw, and on your next visit (or
+CADENCE takes a snapshot of what you saw, and on your next visit (or
 after the simulated market clock advances) it:
 
 1. Recomputes a rich set of statistics for every stock, using **only
@@ -66,9 +73,9 @@ after the simulated market clock advances) it:
 5. Lets you **replay** any event in the **Market Time Machine** and export a
    shareable **Change Story Card**.
 
-## Why Market Detective is different
+## Why CADENCE is different
 
-| A normal watchlist | Market Detective |
+| A normal watchlist | CADENCE |
 | --- | --- |
 | "TCS is +4% today" | "TCS moved 4.1σ beyond its own normal range on 5.2× volume while its sector moved +0.7% — this is stock-specific" |
 | Every fluctuation shown equally | Only meaningful changes; ranked by an explainable Attention Score |
@@ -97,9 +104,11 @@ after the simulated market clock advances) it:
   browser.
 - **Data-quality honesty** — Fresh / Delayed / Stale / Missing / Conflicting, with
   a dataset-health dashboard.
-- **Demo authentication** — name + email or a seeded account; state persists in
-  MongoDB Atlas across sessions and devices.
+- **Real accounts** — email + password signup/login (bcrypt-hashed, JWT bearer
+  tokens); state persists in MongoDB Atlas across sessions and devices.
 - **Per-user demo clock** — Advance / Reset the simulated market time.
+- **Live Markets** — search any real stock (India or worldwide) and see a live
+  quote + daily chart via Twelve Data, entirely separate from Detective Mode.
 
 ## The Market Time Machine
 
@@ -121,19 +130,19 @@ not a canned animation.
 ## Architecture
 
 ```
-market-detective/
+cadence/
 ├── backend/            FastAPI · Pandas/NumPy/scikit-learn · Motor (MongoDB)
 │   ├── app/
 │   │   ├── api/         REST routes (auth, stocks, watchlists, briefings,
-│   │   │                cases, replay, demo-clock, data-quality, meta)
-│   │   ├── core/        config, logging, error handling
+│   │   │                cases, replay, demo-clock, data-quality, live-market, meta)
+│   │   ├── core/        config, security (hashing/JWT), logging, error handling
 │   │   ├── db/          Mongo client + a file-backed local store (same API)
 │   │   ├── repositories/  data-access layer, one class per collection
 │   │   ├── schemas/     Pydantic models
 │   │   ├── ml/          features · anomaly · sentiment · scoring · verdict ·
 │   │   │                detectives · explanation   (+ scoring_weights.json)
 │   │   ├── services/    analysis engine, briefing, demo clock, replay,
-│   │   │                data quality, seeding
+│   │   │                data quality, seeding, live-market (Twelve Data client)
 │   │   └── data/        deterministic dataset generator + loader
 │   ├── scripts/         seed.py, diagnose.py
 │   └── tests/
@@ -141,6 +150,7 @@ market-detective/
 │   └── src/             shadcn/ui (base-lyra) + Vercel AI Elements · TanStack
 │                        Query · React Router
 ├── data/generated/     the committed Offline Research Dataset (CSV + JSON)
+├── render.yaml         Render (backend) deploy config
 └── docs/               ARCHITECTURE · DEMO_SCRIPT · MODEL_CARD ·
                         DATA_DICTIONARY · SCENARIO_MANIFEST
 ```
@@ -182,11 +192,19 @@ Copy [`.env.example`](.env.example) to `backend/.env`:
 ```env
 DB_BACKEND=auto                     # auto | mongo | memory
 MONGODB_URI=mongodb+srv://USER:PASS@CLUSTER/?retryWrites=true&w=majority
-MONGODB_DB_NAME=market_detective
+MONGODB_DB_NAME=cadence
 MONGODB_TEST_URI=mongodb+srv://USER:PASS@CLUSTER/?retryWrites=true&w=majority
-MONGODB_TEST_DB_NAME=market_detective_test
+MONGODB_TEST_DB_NAME=cadence_test
 BACKEND_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 DEMO_CLOCK_ADVANCE_BARS=18
+
+# Auth — required in production (APP_ENV=prod fails startup without it)
+JWT_SECRET_KEY=                     # e.g. `openssl rand -hex 32`
+JWT_ALGORITHM=HS256
+
+# Live Markets — optional; without it, /api/live/* returns 503
+# market_data_not_configured and Detective Mode is unaffected
+TWELVE_DATA_API_KEY=
 ```
 
 Frontend (`frontend/.env`, optional — the default works):
@@ -279,8 +297,9 @@ Everything runs locally, is explainable, and is deterministic (fixed
 
 ## Data limitations
 
-- Synthetic data — **not real market data**. It is realistic in structure, not in
-  identity; company names label sectors, nothing more.
+- Detective Mode's dataset is synthetic — **not real market data**. It is
+  realistic in structure, not in identity; company names label sectors, nothing
+  more. (Live Markets, in contrast, is real — see above.)
 - The `local_wire` news feed is modelled as unverified background chatter; only
   the curated `research_primary` feed is treated as "material" for the
   price-before-news test. This is a modelling choice, documented in the model card.
@@ -319,9 +338,9 @@ python -m scripts.seed --test         # seed the TEST database only
 ```
 
 Seeding inserts market observations, precomputed features, local news,
-data-quality events, ~58 Investigation Cases, three seeded demo accounts (each
-with a watchlist + a baseline snapshot), and per-user demo clocks. It **does not
-duplicate** anything on re-run.
+data-quality events, and ~58 Investigation Cases for Detective Mode. It **does
+not duplicate** anything on re-run. User accounts are created by real signup
+(`POST /auth/signup`), not by seeding.
 
 > The backend also **auto-seeds on first startup** if the cases collection is
 > empty, so `uvicorn app.main:app` works with no separate step. `scripts/seed.py`
@@ -339,8 +358,8 @@ cd frontend
 npm run dev
 ```
 
-Open <http://localhost:5173>, sign in with **"Demo Detective"** (or any
-name + email).
+Open <http://localhost:5173> and create an account (name, email, password) — or
+log back in if you've already signed up.
 
 ## Tests & builds
 
@@ -366,7 +385,7 @@ touch a database whose name is not the configured test DB.
 
 The full script is in [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md). In short:
 
-1. **0:00** — "A normal watchlist says a stock moved. Market Detective says
+1. **0:00** — "A normal watchlist says a stock moved. CADENCE says
    whether it was unusual, what explains it, and whether it deserves attention."
 2. **0:30** — Dashboard → **Advance Market Time** twice → *"You were away for 36
    simulated market hours. We found 6 changes, but only 3 deserve your attention."*
@@ -379,8 +398,9 @@ The full script is in [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md). In short:
    investigating, not a claim of misconduct."*
 5. **2:30** — Show stale/conflicting data lowering confidence on the data-quality
    panel.
-6. **2:50** — Generate a **Change Story Card**. Close with *"Your stocks moved.
-   We investigated why."*
+6. **2:50** — Generate a **Change Story Card**, then switch to **Live Markets**
+   and pull up a real quote for any symbol. Close with *"cause every market move
+   has a rhythm."*
 
 ## Scalability strategy
 
@@ -396,13 +416,45 @@ The prototype stays simple, but the architecture is built to grow — see
   inserts.
 - Never recompute full stock history on a request.
 - Future: background workers for ingestion, scheduled recompute, Redis cache,
-  MongoDB time-series collections, multiple backend instances, and — only with
-  proper authorisation — a real market-data provider behind the same repository
-  interface.
+  MongoDB time-series collections, multiple backend instances, and extending
+  Live Markets' Twelve Data client with a shared cache (e.g. Redis) if traffic
+  outgrows the current per-process TTL cache.
+
+## Deployment (Render + Vercel)
+
+**Backend → Render.** `render.yaml` at the repo root defines a Python web
+service (`rootDir: backend`, `uvicorn app.main:app --host 0.0.0.0 --port $PORT`,
+health check at `/api/health`). Set these env vars on the Render service
+(`sync: false` ones are secrets you paste in, not committed):
+
+| Variable | Value |
+| --- | --- |
+| `DB_BACKEND` | `mongo` |
+| `MONGODB_URI` | your Atlas connection string |
+| `MONGODB_DB_NAME` | `cadence` |
+| `BACKEND_CORS_ORIGINS` | `https://<your-app>.vercel.app` |
+| `TWELVE_DATA_API_KEY` | your Twelve Data key |
+| `JWT_SECRET_KEY` | `openssl rand -hex 32` |
+| `JWT_ALGORITHM` | `HS256` |
+| `APP_ENV` | `prod` |
+
+**Frontend → Vercel.** Framework preset **Vite**, root directory `frontend`,
+build command `npm run build`, output directory `dist`. `frontend/vercel.json`
+rewrites all paths to `index.html` so React Router's client-side routes don't
+404 on a hard refresh. Set one build-time env var:
+
+| Variable | Value |
+| --- | --- |
+| `VITE_API_BASE_URL` | `https://<your-render-service>.onrender.com/api` |
+
+**After the first deploy:** copy the live Vercel URL into `BACKEND_CORS_ORIGINS`
+on Render and **restart** the Render service (config is cached per-process, so
+an env var edit alone doesn't take effect). Confirm MongoDB Atlas → Network
+Access allows Render's egress.
 
 ## Educational disclaimer
 
-**Market Detective is an educational market-analysis prototype. It uses
+**CADENCE is an educational market-analysis prototype. Detective Mode uses
 synthetic, historical-style data — not live market data — and produces **no**
-investment advice. Nothing here is a recommendation to buy, sell or hold any
-security.**
+investment advice. Live Markets shows real quotes via Twelve Data, but nothing
+in either mode is a recommendation to buy, sell or hold any security.**

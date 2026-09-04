@@ -13,6 +13,14 @@ motor==3.6.0
 pymongo==4.9.2
 dnspython==2.7.0
 
+# Auth
+bcrypt==4.0.1
+pyjwt==2.9.0
+
+# Live Markets — outbound calls to the Twelve Data API (Detective Mode never
+# uses this; httpx also doubles as the test client below)
+httpx==0.28.1
+
 # Data / ML
 numpy==2.2.1
 pandas==2.2.3
@@ -22,5 +30,4 @@ scipy==1.15.0
 # Testing
 pytest==8.3.4
 pytest-asyncio==0.25.2
-httpx==0.28.1
 asgi-lifespan==2.1.0

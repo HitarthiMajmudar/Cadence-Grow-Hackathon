@@ -7,6 +7,8 @@ from asgi_lifespan import LifespanManager
 
 pytestmark = pytest.mark.asyncio
 
+PASSWORD = "Password123!"
+
 
 @pytest.fixture()
 async def client(tmp_path, monkeypatch):
@@ -15,6 +17,7 @@ async def client(tmp_path, monkeypatch):
     monkeypatch.setenv("DB_BACKEND", "memory")
     monkeypatch.setenv("LOCAL_STORE_DIR", str(store))
     monkeypatch.setenv("MONGODB_URI", "")
+    monkeypatch.setenv("JWT_SECRET_KEY", "test-secret-key-not-for-prod")
 
     from app.core.config import get_settings
     from app.db.client import database  # the shared singleton main.py also uses
@@ -33,10 +36,15 @@ async def client(tmp_path, monkeypatch):
     get_settings.cache_clear()
 
 
-async def _login(client: httpx.AsyncClient, email="judge@example.com") -> str:
-    r = await client.post("/api/auth/demo-login", json={"name": "Judge", "email": email})
-    assert r.status_code == 200
-    return r.json()["id"]
+async def _signup(client: httpx.AsyncClient, email="judge@example.com", password=PASSWORD) -> dict:
+    r = await client.post(
+        "/api/auth/signup", json={"name": "Judge", "email": email, "password": password})
+    assert r.status_code == 201, r.text
+    return r.json()
+
+
+def _auth(token: str) -> dict:
+    return {"Authorization": f"Bearer {token}"}
 
 
 async def test_health(client):
@@ -47,29 +55,44 @@ async def test_health(client):
     assert body["cases"] > 0
 
 
-async def test_demo_login_creates_user_and_watchlist(client):
-    uid = await _login(client)
-    h = {"X-User-Id": uid}
+async def test_signup_creates_user_and_watchlist(client):
+    body = await _signup(client)
+    assert body["user"]["email"] == "judge@example.com"
+    h = _auth(body["access_token"])
     r = await client.get("/api/watchlists", headers=h)
     assert r.status_code == 200
     assert len(r.json()) == 1
     assert r.json()[0]["symbols"]
 
 
-async def test_login_is_idempotent_by_email(client):
-    a = await _login(client, "same@example.com")
-    b = await _login(client, "same@example.com")
-    assert a == b
+async def test_duplicate_signup_conflicts_but_login_succeeds(client):
+    first = await _signup(client, "same@example.com")
+    dup = await client.post(
+        "/api/auth/signup",
+        json={"name": "Judge", "email": "same@example.com", "password": PASSWORD})
+    assert dup.status_code == 409
+
+    login = await client.post(
+        "/api/auth/login", json={"email": "same@example.com", "password": PASSWORD})
+    assert login.status_code == 200
+    assert login.json()["user"]["id"] == first["user"]["id"]
+
+    bad = await client.post(
+        "/api/auth/login", json={"email": "same@example.com", "password": "wrong-password"})
+    assert bad.status_code == 401
 
 
 async def test_requires_auth_header(client):
     r = await client.get("/api/watchlists")
     assert r.status_code == 401
 
+    r = await client.get("/api/watchlists", headers={"Authorization": "Bearer garbage-token"})
+    assert r.status_code == 401
+
 
 async def test_full_demo_journey(client):
-    uid = await _login(client)
-    h = {"X-User-Id": uid}
+    body = await _signup(client)
+    h = _auth(body["access_token"])
 
     wl = (await client.get("/api/watchlists", headers=h)).json()[0]
     wid = wl["id"]
@@ -125,9 +148,9 @@ async def test_full_demo_journey(client):
 
 
 async def test_case_status_is_user_specific(client):
-    a = await _login(client, "a2@example.com")
-    b = await _login(client, "b2@example.com")
-    ha, hb = {"X-User-Id": a}, {"X-User-Id": b}
+    a = await _signup(client, "a2@example.com")
+    b = await _signup(client, "b2@example.com")
+    ha, hb = _auth(a["access_token"]), _auth(b["access_token"])
     cases = (await client.get("/api/cases?scope=all&budget=all", headers=ha)).json()
     pool = cases["needs_attention"] + cases["still_investigating"] + cases["explained"]
     cid = pool[0]["case_id"]
@@ -140,16 +163,16 @@ async def test_case_status_is_user_specific(client):
 
 
 async def test_watchlist_delete_guard(client):
-    uid = await _login(client, "guard@example.com")
-    h = {"X-User-Id": uid}
+    body = await _signup(client, "guard@example.com")
+    h = _auth(body["access_token"])
     wl = (await client.get("/api/watchlists", headers=h)).json()[0]
     r = await client.delete(f"/api/watchlists/{wl['id']}", headers=h)
     assert r.status_code == 409  # cannot delete the last watchlist
 
 
 async def test_stock_endpoints(client):
-    uid = await _login(client, "stocks@example.com")
-    h = {"X-User-Id": uid}
+    body = await _signup(client, "stocks@example.com")
+    h = _auth(body["access_token"])
     stocks = (await client.get("/api/stocks")).json()
     assert len(stocks) >= 8
     sym = stocks[0]["symbol"]

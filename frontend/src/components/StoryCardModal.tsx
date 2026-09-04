@@ -32,7 +32,7 @@ export function StoryCardModal({ caseId, onClose }: { caseId: string; onClose: (
       const url = await toPng(cardRef.current, { pixelRatio: 2, cacheBust: true });
       const a = document.createElement("a");
       a.href = url;
-      a.download = `market-detective-${data?.symbol ?? "case"}.png`;
+      a.download = `cadence-${data?.symbol ?? "case"}.png`;
       a.click();
     } catch {
       setErr("PNG export failed in this browser — use Print, or open the standalone card.");

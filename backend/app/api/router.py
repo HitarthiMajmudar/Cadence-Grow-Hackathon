@@ -5,6 +5,7 @@ from app.api.routes import (
     briefings,
     cases,
     clock,
+    live_market,
     meta,
     quality,
     replay,
@@ -22,3 +23,4 @@ api_router.include_router(cases.router)
 api_router.include_router(replay.router)
 api_router.include_router(clock.router)
 api_router.include_router(quality.router)
+api_router.include_router(live_market.router)

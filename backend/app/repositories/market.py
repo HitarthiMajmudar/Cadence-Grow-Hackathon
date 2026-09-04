@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app.repositories.base import BaseRepository
+from app.repositories.base import BaseRepository, new_id
 
 
 class MarketObservationRepository(BaseRepository):
@@ -88,7 +88,7 @@ class DataQualityEventRepository(BaseRepository):
     async def bulk_replace(self, rows: list[dict]) -> int:
         await self.collection.delete_many({})
         for r in rows:
-            r.setdefault("_id", None)
+            r.setdefault("_id", new_id())
         if rows:
             await self.collection.insert_many(rows)
         return len(rows)

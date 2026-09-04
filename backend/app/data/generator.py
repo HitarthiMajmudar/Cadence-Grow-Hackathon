@@ -1,5 +1,5 @@
 """
-Offline Research Dataset generator for Market Detective.
+Offline Research Dataset generator for CADENCE's Detective Mode.
 
 This module deterministically synthesises a plausible Indian-equities dataset
 (prices, volumes, a market index, timestamped local headlines and data-quality
@@ -812,7 +812,7 @@ def generate(force: bool = True) -> dict:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Generate the Market Detective offline dataset")
+    ap = argparse.ArgumentParser(description="Generate the CADENCE Detective Mode offline dataset")
     ap.add_argument("--force", action="store_true", help="overwrite existing files")
     args = ap.parse_args()
     summary = generate(force=True)

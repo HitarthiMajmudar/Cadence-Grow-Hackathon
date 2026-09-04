@@ -1,4 +1,4 @@
-"""Market Detective — FastAPI application entry point."""
+"""CADENCE — FastAPI application entry point."""
 from __future__ import annotations
 
 import logging
@@ -16,15 +16,17 @@ from app.db.client import database
 logger = logging.getLogger("market_detective")
 
 DESCRIPTION = """
-**Market Detective** — *"Your stocks moved. We investigated why."*
+**CADENCE** — *"cause every market move has a rhythm."*
 
-An educational market-analysis prototype. It compares what you last saw with the
-latest state of an **Offline Research Dataset**, turns meaningful changes into
-evidence-backed **Investigation Cases**, and replays them in the **Market Time
-Machine**.
+An educational market-analysis prototype. **Detective Mode** compares what you
+last saw with the latest state of an **Offline Research Dataset**, turns
+meaningful changes into evidence-backed **Investigation Cases**, and replays
+them in the **Market Time Machine** — all of it computed locally, with no
+external market, news or LLM APIs. A separate **Live Markets** feature calls
+the Twelve Data API for real quotes on any symbol you search; it has no
+Attention Score and is not part of Detective Mode's analysis engine.
 
-This tool does **not** give buy / sell / hold advice, and it uses **no external
-market, news or LLM APIs** — all data is synthetic and generated locally.
+This tool does **not** give buy / sell / hold advice.
 """
 
 
@@ -65,7 +67,7 @@ async def lifespan(app: FastAPI):
 def create_app() -> FastAPI:
     settings = get_settings()
     app = FastAPI(
-        title="Market Detective API",
+        title="CADENCE API",
         description=DESCRIPTION,
         version="1.0.0",
         lifespan=lifespan,
@@ -84,7 +86,7 @@ def create_app() -> FastAPI:
 
     @app.get("/", include_in_schema=False)
     async def root() -> dict:
-        return {"name": "Market Detective API", "docs": "/docs", "health": "/api/health"}
+        return {"name": "CADENCE API", "docs": "/docs", "health": "/api/health"}
 
     return app
 

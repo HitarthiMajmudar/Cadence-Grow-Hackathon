@@ -2,13 +2,14 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import type { ReactNode } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { api } from "@/api/endpoints";
-import { getStoredUserId, setStoredUserId } from "@/api/client";
+import { getStoredToken, setStoredToken } from "@/api/client";
 import type { User } from "@/types";
 
 interface AuthContextValue {
   user: User | null;
   loading: boolean;
-  login: (name: string, email: string) => Promise<User>;
+  signup: (name: string, email: string, password: string) => Promise<User>;
+  login: (email: string, password: string) => Promise<User>;
   logout: () => void;
   refresh: () => Promise<void>;
 }
@@ -21,8 +22,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const qc = useQueryClient();
 
   const refresh = useCallback(async () => {
-    const id = getStoredUserId();
-    if (!id) {
+    const token = getStoredToken();
+    if (!token) {
       setUser(null);
       setLoading(false);
       return;
@@ -31,7 +32,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const me = await api.me();
       setUser(me);
     } catch {
-      setStoredUserId(null);
+      setStoredToken(null);
       setUser(null);
     } finally {
       setLoading(false);
@@ -42,26 +43,38 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     void refresh();
   }, [refresh]);
 
-  const login = useCallback(
-    async (name: string, email: string) => {
-      const u = await api.demoLogin(name, email);
-      setStoredUserId(u.id);
-      setUser(u);
+  const signup = useCallback(
+    async (name: string, email: string, password: string) => {
+      const res = await api.signup(name, email, password);
+      setStoredToken(res.access_token);
+      setUser(res.user);
       await qc.invalidateQueries();
-      return u;
+      return res.user;
+    },
+    [qc],
+  );
+
+  const login = useCallback(
+    async (email: string, password: string) => {
+      const res = await api.login(email, password);
+      setStoredToken(res.access_token);
+      setUser(res.user);
+      await qc.invalidateQueries();
+      return res.user;
     },
     [qc],
   );
 
   const logout = useCallback(() => {
-    setStoredUserId(null);
+    setStoredToken(null);
     setUser(null);
     qc.clear();
+    void api.logout().catch(() => undefined);
   }, [qc]);
 
   const value = useMemo(
-    () => ({ user, loading, login, logout, refresh }),
-    [user, loading, login, logout, refresh],
+    () => ({ user, loading, signup, login, logout, refresh }),
+    [user, loading, signup, login, logout, refresh],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

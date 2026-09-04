@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from pydantic import EmailStr, Field
+from pydantic import Field
 
 from app.schemas.common import ApiModel
 
@@ -15,11 +15,6 @@ class UserPreferences(ApiModel):
     theme: str = "dark"
 
 
-class DemoLoginRequest(ApiModel):
-    name: str = Field(min_length=1, max_length=80)
-    email: EmailStr
-
-
 class UserOut(ApiModel):
     id: str = Field(alias="_id")
     name: str
@@ -27,7 +22,6 @@ class UserOut(ApiModel):
     created_at: datetime
     last_login_at: datetime
     preferences: UserPreferences
-    is_seeded: bool = False
 
 
 class UpdatePreferencesRequest(ApiModel):
