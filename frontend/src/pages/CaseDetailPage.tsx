@@ -21,8 +21,16 @@ import { PriceChart } from "@/components/charts";
 import { VerdictBadge, FreshnessBadge } from "@/components/badges";
 import { StoryCardModal } from "@/components/StoryCardModal";
 import { Badge } from "@/components/ui/badge";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, ErrorState, LoadingBlock, SectionTitle } from "@/components/ui";
-import { cx, fmtDateTime, severityMeta } from "@/utils/format";
+import { CodeBlock } from "@/components/ai-elements/code-block";
+import { MessageResponse as Response } from "@/components/ai-elements/message";
+import {
+  Reasoning,
+  ReasoningContent,
+  ReasoningTrigger,
+} from "@/components/ai-elements/reasoning";
+import { cn, fmtDateTime, severityMeta } from "@/utils/format";
 
 export function CaseDetailPage() {
   const { caseId } = useParams();
@@ -31,6 +39,7 @@ export function CaseDetailPage() {
   const { data: c, isLoading, error, refetch } = useCase(caseId);
   const [storyOpen, setStoryOpen] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [showRaw, setShowRaw] = useState(false);
 
   if (isLoading) return <LoadingBlock height={400} />;
   if (error || !c) return <ErrorState message={(error as Error)?.message} onRetry={() => refetch()} />;
@@ -51,88 +60,108 @@ export function CaseDetailPage() {
 
   return (
     <div className="space-y-5">
-      <button className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-200" onClick={() => navigate(-1)}>
-        <ArrowLeft className="h-4 w-4" /> Back
+      <button
+        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+        onClick={() => navigate(-1)}
+      >
+        <ArrowLeft className="size-4" /> Back
       </button>
 
-      {/* header */}
-      <Card className="border-white/15">
+      <Card>
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div className="min-w-[260px] flex-1">
             <div className="flex items-center gap-2">
-              <Link to={`/stocks/${c.symbol}`} className="font-mono text-xl font-extrabold hover:text-attention">
+              <Link
+                to={`/stocks/${c.symbol}`}
+                className="font-mono text-lg font-semibold hover:text-primary"
+              >
                 {c.symbol}
               </Link>
-              <span className="text-slate-500">{c.company_name}</span>
-              <span className="text-xs text-slate-600">· {c.sector_name}</span>
+              <span className="text-muted-foreground">{c.company_name}</span>
+              <span className="text-xs text-muted-foreground">· {c.sector_name}</span>
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <VerdictBadge verdict={c.verdict} />
               <Badge variant={sev.tone}>{sev.label} severity</Badge>
               <FreshnessBadge freshness={c.data_quality.freshness} />
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-muted-foreground">
                 detected {fmtDateTime(c.detection_timestamp)}
               </span>
             </div>
-            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-200">
-              {c.headline_explanation}
-            </p>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400">{c.explanation}</p>
+            <div className="mt-3 max-w-2xl text-sm text-foreground">
+              <Response>{c.headline_explanation}</Response>
+            </div>
+            <div className="mt-2 max-w-2xl text-sm text-muted-foreground">
+              <Response>{c.explanation}</Response>
+            </div>
+            {c.verdict_reason && (
+              <Reasoning defaultOpen={false} className="mt-3">
+                <ReasoningTrigger>How the verdict tree reached this</ReasoningTrigger>
+                <ReasoningContent>{c.verdict_reason}</ReasoningContent>
+              </Reasoning>
+            )}
           </div>
           <div className="flex flex-col items-center gap-2">
             <AttentionScore score={c.attention_score} confidence={c.confidence} size={132} />
             <div className="flex gap-1.5">
-              <button className="btn-primary !px-3 !py-2 text-xs" onClick={() => setStoryOpen(true)}>
-                <Share2 className="h-3.5 w-3.5" /> Story Card
+              <button className={cn(buttonVariants({ size: "sm" }), "gap-1.5")} onClick={() => setStoryOpen(true)}>
+                <Share2 /> Story Card
               </button>
-              <Link to={`/time-machine/${c.symbol}`} className="btn-ghost !px-3 !py-2 text-xs">
-                <Rewind className="h-3.5 w-3.5" /> Replay
+              <Link
+                to={`/time-machine/${c.symbol}`}
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-1.5")}
+              >
+                <Rewind /> Replay
               </Link>
             </div>
           </div>
         </div>
 
-        {/* status + feedback bar */}
-        <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/10 pt-3">
-          <span className="label">Status</span>
+        <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">
+          <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            Status
+          </span>
           {(["viewed", "saved", "dismissed"] as const).map((s) => {
             const Icon = s === "saved" ? Bookmark : s === "dismissed" ? Trash2 : Check;
             return (
-              <button
+              <Button
                 key={s}
+                size="xs"
+                variant={c.status === s ? "default" : "outline"}
+                className="capitalize"
                 onClick={() => setStatus(s)}
-                className={cx(
-                  "chip capitalize",
-                  c.status === s
-                    ? "border-attention/40 bg-attention/10 text-attention"
-                    : "border-white/10 bg-white/5 text-slate-400 hover:bg-white/10",
-                )}
               >
-                <Icon className="h-3 w-3" /> {s}
-              </button>
+                <Icon /> {s}
+              </Button>
             );
           })}
           <div className="ml-auto flex items-center gap-2">
-            <span className="label">Was this useful?</span>
-            <button
+            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              Was this useful?
+            </span>
+            <Button
+              size="icon-xs"
+              variant={feedback === "useful" ? "default" : "outline"}
               onClick={() => sendFeedback("useful")}
-              className={cx("chip", feedback === "useful" ? "border-gain/40 bg-gain/10 text-gain" : "border-white/10 bg-white/5 text-slate-400 hover:bg-white/10")}
             >
-              <ThumbsUp className="h-3 w-3" />
-            </button>
-            <button
+              <ThumbsUp />
+            </Button>
+            <Button
+              size="icon-xs"
+              variant={feedback === "not_useful" ? "destructive" : "outline"}
               onClick={() => sendFeedback("not_useful")}
-              className={cx("chip", feedback === "not_useful" ? "border-risk/40 bg-risk/10 text-risk" : "border-white/10 bg-white/5 text-slate-400 hover:bg-white/10")}
             >
-              <ThumbsDown className="h-3 w-3" />
-            </button>
+              <ThumbsDown />
+            </Button>
           </div>
         </div>
       </Card>
 
       <div className="grid gap-5 lg:grid-cols-3">
         <Card className="lg:col-span-2">
-          <SectionTitle hint={`Comparison window · ${fmtDateTime(c.comparison_start)} → ${fmtDateTime(c.comparison_end)}`}>
+          <SectionTitle
+            hint={`Comparison window · ${fmtDateTime(c.comparison_start)} → ${fmtDateTime(c.comparison_end)}`}
+          >
             Price during the case window
           </SectionTitle>
           <PriceChart
@@ -155,15 +184,15 @@ export function CaseDetailPage() {
             <Metric k="News in window" v={c.metrics.news_count} int />
           </dl>
           {c.data_quality.warnings.length > 0 && (
-            <div className="mt-3 rounded-lg border border-attention/25 bg-attention/5 p-3">
-              <div className="text-xs font-semibold text-attention">Data-quality warnings</div>
-              <ul className="mt-1 space-y-1 text-xs text-slate-400">
+            <div className="mt-3 rounded-md border border-warning/40 bg-warning/10 p-3">
+              <div className="text-xs font-medium text-warning-foreground">Data-quality warnings</div>
+              <ul className="mt-1 space-y-1 text-xs text-muted-foreground">
                 {c.data_quality.warnings.map((w, i) => (
                   <li key={i}>· {w}</li>
                 ))}
               </ul>
               {c.data_quality.conflict_detail && (
-                <p className="mt-2 text-xs text-slate-400">{c.data_quality.conflict_detail}</p>
+                <p className="mt-2 text-xs text-muted-foreground">{c.data_quality.conflict_detail}</p>
               )}
             </div>
           )}
@@ -176,8 +205,24 @@ export function CaseDetailPage() {
 
       <div className="grid gap-5 lg:grid-cols-2">
         <Card>
-          <SectionTitle hint="What the Attention Score is made of">Score breakdown</SectionTitle>
-          <ScoreBreakdown components={c.score_components} />
+          <SectionTitle
+            hint="What the Attention Score is made of"
+            right={
+              <Button variant="ghost" size="xs" onClick={() => setShowRaw((v) => !v)}>
+                {showRaw ? "Hide raw" : "Raw JSON"}
+              </Button>
+            }
+          >
+            Score breakdown
+          </SectionTitle>
+          {showRaw ? (
+            <CodeBlock
+              language="json"
+              code={JSON.stringify(c.score_components, null, 2)}
+            />
+          ) : (
+            <ScoreBreakdown components={c.score_components} />
+          )}
         </Card>
         <div className="space-y-5">
           <Card>
@@ -224,8 +269,8 @@ function Metric({
   }
   return (
     <div className="flex flex-col">
-      <dt className="text-[11px] uppercase tracking-wide text-slate-500">{k}</dt>
-      <dd className="font-mono font-semibold tabular-nums text-slate-100">{display}</dd>
+      <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{k}</dt>
+      <dd className="font-mono font-semibold tabular-nums">{display}</dd>
     </div>
   );
 }

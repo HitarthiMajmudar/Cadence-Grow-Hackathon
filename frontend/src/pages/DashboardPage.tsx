@@ -17,7 +17,17 @@ import { CaseCard } from "@/components/CaseCard";
 import { AttentionMeter } from "@/components/AttentionScore";
 import { VerdictBadge, FreshnessBadge } from "@/components/badges";
 import { Card, EmptyState, ErrorState, LoadingBlock, SectionTitle, StatTile } from "@/components/ui";
-import { cx, fmtDateTime, pct, priceDirClass, money } from "@/utils/format";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { cn, fmtDateTime, pct, priceDirClass, money } from "@/utils/format";
 import type { CaseSummary } from "@/types";
 
 export function DashboardPage() {
@@ -33,7 +43,6 @@ export function DashboardPage() {
   const [showAllExplained, setShowAllExplained] = useState(false);
 
   const topCase = cases?.needs_attention[0] ?? cases?.still_investigating[0];
-
   const budgetLabel = cases?.budget_label ?? "—";
 
   const handleMarkSeen = () => {
@@ -47,35 +56,35 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      {/* command bar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight">Investigation Room</h1>
-          <p className="text-sm text-slate-500">
+          <h1 className="text-xl font-semibold tracking-tight">Investigation Room</h1>
+          <p className="text-sm text-muted-foreground">
             {watchlist ? `${watchlist.name} · ${watchlist.symbols.length} stocks` : "Loading watchlist…"}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <WatchlistSelector activeId={activeId} onChange={setActive} />
-          <Link to={`/time-machine`} className="btn-cyan">
-            <Rewind className="h-4 w-4" />
-            Replay What I Missed
+          <Link
+            to="/time-machine"
+            className={cn(buttonVariants({ variant: "secondary", size: "sm" }), "gap-1.5")}
+          >
+            <Rewind />
+            Replay what I missed
           </Link>
         </div>
       </div>
 
-      <Card className="!p-4">
+      <Card className="p-4">
         <DatasetClock />
       </Card>
 
-      {/* since you left */}
       {brLoading && <LoadingBlock height={220} />}
       {brError && <ErrorState message={(brError as Error).message} onRetry={() => refetch()} />}
       {briefing && (
         <SinceYouLeft briefing={briefing} onMarkSeen={handleMarkSeen} marking={markSeen.isPending} />
       )}
 
-      {/* stat row */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile
           label="Deserve attention"
@@ -101,55 +110,62 @@ export function DashboardPage() {
         />
       </div>
 
-      {/* top case spotlight */}
       {topCase && (
-        <Card className="border-attention/25 bg-gradient-to-br from-attention/10 to-transparent">
+        <Card className="border-primary/40">
           <SectionTitle hint="The single case ranked most urgent for this watchlist right now">
             <span className="flex items-center gap-2">
-              <Target className="h-4 w-4 text-attention" /> Top Investigation Case
+              <Target className="size-4 text-primary" /> Top Investigation Case
             </span>
           </SectionTitle>
           <div className="flex flex-wrap items-start gap-5">
             <div className="min-w-[240px] flex-1">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-lg font-bold">{topCase.symbol}</span>
-                <span className="text-sm text-slate-500">{topCase.company_name}</span>
+                <span className="font-mono text-base font-semibold">{topCase.symbol}</span>
+                <span className="text-sm text-muted-foreground">{topCase.company_name}</span>
               </div>
               <div className="mt-1.5">
                 <VerdictBadge verdict={topCase.verdict} />
               </div>
-              <p className="mt-2 max-w-xl text-sm text-slate-300">{topCase.headline_explanation}</p>
+              <p className="mt-2 max-w-xl text-sm text-foreground/80">{topCase.headline_explanation}</p>
               <div className="mt-3 flex items-center gap-4">
                 <AttentionMeter score={topCase.attention_score} />
-                <span className="text-xs text-slate-500">{Math.round(topCase.confidence)}% confidence</span>
+                <span className="text-xs text-muted-foreground">
+                  {Math.round(topCase.confidence)}% confidence
+                </span>
               </div>
             </div>
             <div className="flex gap-2">
-              <Link to={`/cases/${topCase.case_id}`} className="btn-primary">
+              <Link
+                to={`/cases/${topCase.case_id}`}
+                className={cn(buttonVariants({ size: "sm" }))}
+              >
                 Open the case
               </Link>
-              <Link to={`/time-machine/${topCase.symbol}`} className="btn-ghost">
-                <Rewind className="h-4 w-4" /> Time Machine
+              <Link
+                to={`/time-machine/${topCase.symbol}`}
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-1.5")}
+              >
+                <Rewind />
+                Time Machine
               </Link>
             </div>
           </div>
         </Card>
       )}
 
-      {/* three investigation columns */}
       {casesLoading && <LoadingBlock height={200} />}
       {cases && (
         <div className="grid gap-5 lg:grid-cols-3">
           <Column
             title="Needs Attention"
-            icon={<AlertTriangle className="h-4 w-4 text-attention" />}
+            icon={<AlertTriangle className="size-4 text-warning-foreground" />}
             hint={`Score ≥ ${cases.threshold} · ${budgetLabel}`}
             list={cases.needs_attention}
             empty="Nothing crossed your attention threshold. That's the point — quiet is good."
           />
           <Column
             title="Still Investigating"
-            icon={<Search className="h-4 w-4 text-neutralc" />}
+            icon={<Search className="size-4 text-primary" />}
             hint="Conflicting or developing evidence"
             list={cases.still_investigating}
             empty="No cases with unresolved evidence right now."
@@ -157,7 +173,7 @@ export function DashboardPage() {
           <div>
             <SectionTitle hint="Market-wide, sector-driven or news-explained moves">
               <span className="flex items-center gap-2">
-                <Gauge className="h-4 w-4 text-slate-400" /> Explained / Low Priority
+                <Gauge className="size-4 text-muted-foreground" /> Explained / Low Priority
               </span>
             </SectionTitle>
             <div className="space-y-3">
@@ -168,25 +184,26 @@ export function DashboardPage() {
                 <CaseCard key={c.case_id} c={c} dense />
               ))}
               {cases.explained.length > 4 && (
-                <button
-                  className="btn-ghost w-full"
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
                   onClick={() => setShowAllExplained((v) => !v)}
                 >
                   {showAllExplained ? "Show fewer" : `Show ${cases.explained.length - 4} more`}
-                </button>
+                </Button>
               )}
             </div>
           </div>
         </div>
       )}
 
-      {/* watchlist table + recent */}
       <div className="grid gap-5 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <SectionTitle
             hint="Latest state at the simulated market time"
             right={
-              <Link to="/watchlists" className="text-xs text-neutralc-soft hover:underline">
+              <Link to="/watchlists" className="text-xs text-primary hover:underline">
                 Manage
               </Link>
             }
@@ -195,54 +212,56 @@ export function DashboardPage() {
           </SectionTitle>
           {wlLoading && <LoadingBlock height={160} />}
           {watchlist && (
-            <div className="-mx-2 overflow-x-auto scrollbar-thin">
-              <table className="w-full min-w-[560px] text-sm">
-                <thead>
-                  <tr className="text-left text-[11px] uppercase tracking-wider text-slate-500">
-                    <th className="px-2 py-2">Symbol</th>
-                    <th className="px-2 py-2 text-right">Price</th>
-                    <th className="px-2 py-2 text-right">Change</th>
-                    <th className="px-2 py-2">Attention</th>
-                    <th className="px-2 py-2">Data</th>
-                    <th className="px-2 py-2"></th>
-                  </tr>
-                </thead>
-                <tbody>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Symbol</TableHead>
+                    <TableHead className="text-right">Price</TableHead>
+                    <TableHead className="text-right">Change</TableHead>
+                    <TableHead>Attention</TableHead>
+                    <TableHead>Data</TableHead>
+                    <TableHead />
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
                   {watchlist.items.map((it) => (
-                    <tr
+                    <TableRow
                       key={it.symbol}
-                      className="cursor-pointer border-t border-white/5 hover:bg-white/[0.03]"
+                      className="cursor-pointer"
                       onClick={() => navigate(`/stocks/${it.symbol}`)}
                     >
-                      <td className="px-2 py-2.5">
-                        <div className="font-mono font-bold">{it.symbol}</div>
-                        <div className="text-[11px] text-slate-500">{it.sector_name}</div>
-                      </td>
-                      <td className="px-2 py-2.5 text-right tabular-nums">{money(it.latest_price)}</td>
-                      <td className={cx("px-2 py-2.5 text-right tabular-nums font-medium", priceDirClass(it.change_pct))}>
+                      <TableCell>
+                        <div className="font-mono font-semibold">{it.symbol}</div>
+                        <div className="text-[11px] text-muted-foreground">{it.sector_name}</div>
+                      </TableCell>
+                      <TableCell className="text-right tabular-nums">{money(it.latest_price)}</TableCell>
+                      <TableCell
+                        className={cn("text-right font-medium tabular-nums", priceDirClass(it.change_pct))}
+                      >
                         {pct(it.change_pct)}
-                      </td>
-                      <td className="px-2 py-2.5">
+                      </TableCell>
+                      <TableCell>
                         <AttentionMeter score={it.attention_score} />
-                      </td>
-                      <td className="px-2 py-2.5">
+                      </TableCell>
+                      <TableCell>
                         <FreshnessBadge freshness={it.freshness} />
-                      </td>
-                      <td className="px-2 py-2.5 text-right">
+                      </TableCell>
+                      <TableCell className="text-right">
                         {it.open_case_id ? (
                           <Link
                             to={`/cases/${it.open_case_id}`}
-                            className="text-xs text-neutralc-soft hover:underline"
+                            className="text-xs text-primary hover:underline"
                             onClick={(e) => e.stopPropagation()}
                           >
                             case →
                           </Link>
                         ) : null}
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </div>
           )}
         </Card>
@@ -250,24 +269,26 @@ export function DashboardPage() {
         <Card>
           <SectionTitle hint="Cases you opened recently">
             <span className="flex items-center gap-2">
-              <History className="h-4 w-4 text-slate-400" /> Recently Viewed
+              <History className="size-4 text-muted-foreground" /> Recently Viewed
             </span>
           </SectionTitle>
           <div className="space-y-2">
             {(recent?.cases ?? []).length === 0 && (
-              <p className="text-sm text-slate-500">You haven't opened any cases yet.</p>
+              <p className="text-sm text-muted-foreground">You haven't opened any cases yet.</p>
             )}
             {(recent?.cases ?? []).map((c: CaseSummary) => (
               <Link
                 key={c.case_id}
                 to={`/cases/${c.case_id}`}
-                className="block rounded-lg border border-white/5 bg-white/[0.03] px-3 py-2 hover:bg-white/[0.06]"
+                className="block rounded-md border bg-card px-3 py-2 hover:bg-accent/50"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm font-bold">{c.symbol}</span>
-                  <span className="text-[11px] text-slate-500">{fmtDateTime(c.detection_timestamp).slice(0, 6)}</span>
+                  <span className="font-mono text-sm font-semibold">{c.symbol}</span>
+                  <span className="text-[11px] text-muted-foreground">
+                    {fmtDateTime(c.detection_timestamp).slice(0, 6)}
+                  </span>
                 </div>
-                <div className="mt-0.5 text-xs text-slate-400">{c.verdict}</div>
+                <div className="mt-0.5 text-xs text-muted-foreground">{c.verdict}</div>
               </Link>
             ))}
           </div>
@@ -295,7 +316,9 @@ function Column({
       <SectionTitle hint={hint}>
         <span className="flex items-center gap-2">
           {icon} {title}
-          <span className="ml-1 rounded-full bg-white/10 px-1.5 text-[11px] text-slate-400">{list.length}</span>
+          <Badge variant="secondary" className="h-4 px-1.5">
+            {list.length}
+          </Badge>
         </span>
       </SectionTitle>
       <div className="space-y-3">
