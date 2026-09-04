@@ -1,0 +1,53 @@
+{
+  "market_index": {
+    "symbol": "NIFTYMD",
+    "name": "Nifty Market-Detective 50"
+  },
+  "sectors": [
+    {
+      "id": "AUTO",
+      "name": "Automobile",
+      "symbols": [
+        "TATAMOTORS",
+        "MARUTI",
+        "M&M"
+      ]
+    },
+    {
+      "id": "BANKING",
+      "name": "Banking & Financials",
+      "symbols": [
+        "HDFCBANK",
+        "ICICIBANK",
+        "SBIN"
+      ]
+    },
+    {
+      "id": "ENERGY",
+      "name": "Energy",
+      "symbols": [
+        "RELIANCE",
+        "ONGC",
+        "NTPC"
+      ]
+    },
+    {
+      "id": "FMCG",
+      "name": "Fast-Moving Consumer Goods",
+      "symbols": [
+        "ITC",
+        "HINDUNILVR",
+        "NESTLEIND"
+      ]
+    },
+    {
+      "id": "IT",
+      "name": "Information Technology",
+      "symbols": [
+        "TCS",
+        "INFY",
+        "WIPRO"
+      ]
+    }
+  ]
+}

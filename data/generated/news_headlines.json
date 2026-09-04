@@ -1,0 +1,3488 @@
+[
+  {
+    "id": "NEWS0011",
+    "timestamp": "2025-01-06T13:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd appoints new independent director",
+    "body": "Maruti Suzuki India Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0012",
+    "timestamp": "2025-01-07T13:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0013",
+    "timestamp": "2025-01-08T14:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India raises FY guidance after robust order inflows",
+    "body": "State Bank of India raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0014",
+    "timestamp": "2025-01-09T15:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd completes scheduled maintenance shutdown",
+    "body": "HDFC Bank Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0015",
+    "timestamp": "2025-01-10T09:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd raises FY guidance after robust order inflows",
+    "body": "ITC Ltd raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0016",
+    "timestamp": "2025-01-10T10:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "Regulator opens probe into ITC Ltd accounting practices",
+    "body": "Regulator opens probe into ITC Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0018",
+    "timestamp": "2025-01-13T11:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd appoints new independent director",
+    "body": "Tata Motors Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0017",
+    "timestamp": "2025-01-13T12:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd in talks to acquire smaller regional player",
+    "body": "Oil & Natural Gas Corp Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0019",
+    "timestamp": "2025-01-14T11:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd beats quarterly estimates on strong demand",
+    "body": "NTPC Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0021",
+    "timestamp": "2025-01-15T12:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Brokerage upgrades Hindustan Unilever Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Hindustan Unilever Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0020",
+    "timestamp": "2025-01-15T13:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Brokerage upgrades Maruti Suzuki India Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Maruti Suzuki India Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0022",
+    "timestamp": "2025-01-16T12:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd completes scheduled maintenance shutdown",
+    "body": "ICICI Bank Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0023",
+    "timestamp": "2025-01-16T13:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd clarifies media report on expansion plans",
+    "body": "Infosys Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0024",
+    "timestamp": "2025-01-17T11:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results",
+    "body": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0025",
+    "timestamp": "2025-01-17T15:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd appoints new independent director",
+    "body": "Wipro Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0026",
+    "timestamp": "2025-01-20T15:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown",
+    "body": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0027",
+    "timestamp": "2025-01-21T12:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd misses profit view as margins compress",
+    "body": "Mahindra & Mahindra Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0028",
+    "timestamp": "2025-01-21T12:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd in talks to acquire smaller regional player",
+    "body": "Oil & Natural Gas Corp Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0030",
+    "timestamp": "2025-01-22T10:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India to hold board meeting to consider results",
+    "body": "State Bank of India to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0029",
+    "timestamp": "2025-01-22T14:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown",
+    "body": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0032",
+    "timestamp": "2025-01-23T09:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd clarifies media report on expansion plans",
+    "body": "Tata Motors Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0031",
+    "timestamp": "2025-01-23T14:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd completes scheduled maintenance shutdown",
+    "body": "ICICI Bank Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0034",
+    "timestamp": "2025-01-24T12:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd recalls units after quality complaints",
+    "body": "NTPC Ltd recalls units after quality complaints.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0033",
+    "timestamp": "2025-01-24T14:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Brokerage upgrades Oil & Natural Gas Corp Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Oil & Natural Gas Corp Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0035",
+    "timestamp": "2025-01-27T09:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd announces record date for dividend",
+    "body": "Maruti Suzuki India Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0036",
+    "timestamp": "2025-01-28T15:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd appoints new independent director",
+    "body": "Infosys Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0037",
+    "timestamp": "2025-01-29T13:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd beats quarterly estimates on strong demand",
+    "body": "Tata Motors Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0039",
+    "timestamp": "2025-01-30T10:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd appoints new independent director",
+    "body": "Oil & Natural Gas Corp Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0038",
+    "timestamp": "2025-01-30T12:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd to hold board meeting to consider results",
+    "body": "HDFC Bank Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0040",
+    "timestamp": "2025-01-31T10:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd clarifies media report on expansion plans",
+    "body": "Nestle India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0042",
+    "timestamp": "2025-02-03T12:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "Brokerage upgrades ITC Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades ITC Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0041",
+    "timestamp": "2025-02-03T15:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd completes scheduled maintenance shutdown",
+    "body": "Infosys Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0044",
+    "timestamp": "2025-02-04T11:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India to hold board meeting to consider results",
+    "body": "State Bank of India to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0043",
+    "timestamp": "2025-02-04T15:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd raises FY guidance after robust order inflows",
+    "body": "Reliance Industries Ltd raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0045",
+    "timestamp": "2025-02-05T10:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd clarifies media report on expansion plans",
+    "body": "Infosys Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0047",
+    "timestamp": "2025-02-06T10:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd beats quarterly estimates on strong demand",
+    "body": "Nestle India Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0046",
+    "timestamp": "2025-02-06T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd to hold board meeting to consider results",
+    "body": "Mahindra & Mahindra Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0048",
+    "timestamp": "2025-02-07T11:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India appoints new independent director",
+    "body": "State Bank of India appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0049",
+    "timestamp": "2025-02-07T15:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd completes scheduled maintenance shutdown",
+    "body": "ITC Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0050",
+    "timestamp": "2025-02-10T13:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Regulator opens probe into Infosys Ltd accounting practices",
+    "body": "Regulator opens probe into Infosys Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0051",
+    "timestamp": "2025-02-10T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd wins large multi-year deal, shares in focus",
+    "body": "Nestle India Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0052",
+    "timestamp": "2025-02-11T12:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd to hold board meeting to consider results",
+    "body": "Infosys Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0054",
+    "timestamp": "2025-02-12T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Regulator opens probe into Hindustan Unilever Ltd accounting practices",
+    "body": "Regulator opens probe into Hindustan Unilever Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0053",
+    "timestamp": "2025-02-12T14:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd completes scheduled maintenance shutdown",
+    "body": "Oil & Natural Gas Corp Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0055",
+    "timestamp": "2025-02-13T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0056",
+    "timestamp": "2025-02-14T14:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd CFO resigns abruptly, succession unclear",
+    "body": "Oil & Natural Gas Corp Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0057",
+    "timestamp": "2025-02-14T15:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd misses profit view as margins compress",
+    "body": "Reliance Industries Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0058",
+    "timestamp": "2025-02-17T14:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd announces buyback, board clears proposal",
+    "body": "Oil & Natural Gas Corp Ltd announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0059",
+    "timestamp": "2025-02-18T13:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd to hold board meeting to consider results",
+    "body": "Wipro Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0060",
+    "timestamp": "2025-02-19T11:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd completes scheduled maintenance shutdown",
+    "body": "Infosys Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0062",
+    "timestamp": "2025-02-20T10:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd raises FY guidance after robust order inflows",
+    "body": "Reliance Industries Ltd raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0061",
+    "timestamp": "2025-02-20T12:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd launches new flagship product to positive reviews",
+    "body": "ICICI Bank Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0063",
+    "timestamp": "2025-02-21T15:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd to hold board meeting to consider results",
+    "body": "Maruti Suzuki India Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0064",
+    "timestamp": "2025-02-24T14:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd wins large multi-year deal, shares in focus",
+    "body": "Maruti Suzuki India Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0065",
+    "timestamp": "2025-02-24T14:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd to hold board meeting to consider results",
+    "body": "ITC Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0066",
+    "timestamp": "2025-02-25T09:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd wins large multi-year deal, shares in focus",
+    "body": "ITC Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0067",
+    "timestamp": "2025-02-25T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Brokerage downgrades Hindustan Unilever Ltd, flags valuation risk",
+    "body": "Brokerage downgrades Hindustan Unilever Ltd, flags valuation risk.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0068",
+    "timestamp": "2025-02-26T12:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd clarifies media report on expansion plans",
+    "body": "ICICI Bank Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0070",
+    "timestamp": "2025-02-27T12:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India in talks to acquire smaller regional player",
+    "body": "State Bank of India in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0069",
+    "timestamp": "2025-02-27T15:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd launches new flagship product to positive reviews",
+    "body": "Infosys Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0071",
+    "timestamp": "2025-02-28T09:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd to hold board meeting to consider results",
+    "body": "Maruti Suzuki India Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0001",
+    "timestamp": "2025-02-28T11:15:00",
+    "symbols": [],
+    "headline": "Global markets slide as risk sentiment sours",
+    "body": "Global markets slide as risk sentiment sours.",
+    "source": "market_wire",
+    "event_type": "market",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "market"
+  },
+  {
+    "id": "NEWS0073",
+    "timestamp": "2025-03-03T12:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd appoints new independent director",
+    "body": "ITC Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0072",
+    "timestamp": "2025-03-03T13:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd announces record date for dividend",
+    "body": "NTPC Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0074",
+    "timestamp": "2025-03-04T13:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd to hold board meeting to consider results",
+    "body": "Reliance Industries Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0075",
+    "timestamp": "2025-03-04T14:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Brokerage downgrades Tata Consultancy Services Ltd, flags valuation risk",
+    "body": "Brokerage downgrades Tata Consultancy Services Ltd, flags valuation risk.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0077",
+    "timestamp": "2025-03-05T11:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd appoints new independent director",
+    "body": "Tata Motors Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0076",
+    "timestamp": "2025-03-05T13:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd announces record date for dividend",
+    "body": "Mahindra & Mahindra Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0078",
+    "timestamp": "2025-03-06T09:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd clarifies media report on expansion plans",
+    "body": "HDFC Bank Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0079",
+    "timestamp": "2025-03-06T12:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd cuts outlook citing weak demand environment",
+    "body": "Infosys Ltd cuts outlook citing weak demand environment.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0080",
+    "timestamp": "2025-03-07T14:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd in talks to acquire smaller regional player",
+    "body": "Nestle India Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0081",
+    "timestamp": "2025-03-10T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd appoints new independent director",
+    "body": "Hindustan Unilever Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0082",
+    "timestamp": "2025-03-11T14:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "Court rules against NTPC Ltd in long-running dispute",
+    "body": "Court rules against NTPC Ltd in long-running dispute.",
+    "source": "local_wire",
+    "event_type": "legal_issue",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0083",
+    "timestamp": "2025-03-12T15:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd beats quarterly estimates on strong demand",
+    "body": "Hindustan Unilever Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0084",
+    "timestamp": "2025-03-13T10:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India wins large multi-year deal, shares in focus",
+    "body": "State Bank of India wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0085",
+    "timestamp": "2025-03-14T09:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd announces buyback, board clears proposal",
+    "body": "Maruti Suzuki India Ltd announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0086",
+    "timestamp": "2025-03-17T13:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd announces record date for dividend",
+    "body": "HDFC Bank Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0087",
+    "timestamp": "2025-03-18T11:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd announces record date for dividend",
+    "body": "ITC Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0088",
+    "timestamp": "2025-03-19T14:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Brokerage upgrades Mahindra & Mahindra Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Mahindra & Mahindra Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0089",
+    "timestamp": "2025-03-19T15:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd cuts outlook citing weak demand environment",
+    "body": "NTPC Ltd cuts outlook citing weak demand environment.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0091",
+    "timestamp": "2025-03-20T11:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd in talks to acquire smaller regional player",
+    "body": "Reliance Industries Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0090",
+    "timestamp": "2025-03-20T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "Brokerage upgrades State Bank of India to 'buy', lifts target price",
+    "body": "Brokerage upgrades State Bank of India to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0092",
+    "timestamp": "2025-03-21T14:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Brokerage upgrades Oil & Natural Gas Corp Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Oil & Natural Gas Corp Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0093",
+    "timestamp": "2025-03-24T09:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd announces record date for dividend",
+    "body": "Maruti Suzuki India Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0094",
+    "timestamp": "2025-03-24T10:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd in talks to acquire smaller regional player",
+    "body": "Hindustan Unilever Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0096",
+    "timestamp": "2025-03-25T09:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown",
+    "body": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0095",
+    "timestamp": "2025-03-25T13:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0098",
+    "timestamp": "2025-03-26T13:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd recalls units after quality complaints",
+    "body": "Wipro Ltd recalls units after quality complaints.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0097",
+    "timestamp": "2025-03-26T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd announces record date for dividend",
+    "body": "Nestle India Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0099",
+    "timestamp": "2025-03-27T12:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd appoints new independent director",
+    "body": "NTPC Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0100",
+    "timestamp": "2025-03-28T11:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd appoints new independent director",
+    "body": "Tata Consultancy Services Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0101",
+    "timestamp": "2025-03-28T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown",
+    "body": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0102",
+    "timestamp": "2025-03-31T11:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd announces record date for dividend",
+    "body": "Tata Consultancy Services Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0103",
+    "timestamp": "2025-03-31T14:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Regulator opens probe into Hindustan Unilever Ltd accounting practices",
+    "body": "Regulator opens probe into Hindustan Unilever Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0104",
+    "timestamp": "2025-04-01T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India in talks to acquire smaller regional player",
+    "body": "State Bank of India in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0105",
+    "timestamp": "2025-04-02T12:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd clarifies media report on expansion plans",
+    "body": "ITC Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0106",
+    "timestamp": "2025-04-03T10:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd CFO resigns abruptly, succession unclear",
+    "body": "Infosys Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0107",
+    "timestamp": "2025-04-04T12:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd launches new flagship product to positive reviews",
+    "body": "Maruti Suzuki India Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0108",
+    "timestamp": "2025-04-04T13:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd wins large multi-year deal, shares in focus",
+    "body": "Nestle India Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0109",
+    "timestamp": "2025-04-07T09:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India announces record date for dividend",
+    "body": "State Bank of India announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0110",
+    "timestamp": "2025-04-07T15:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd in talks to acquire smaller regional player",
+    "body": "NTPC Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0111",
+    "timestamp": "2025-04-08T12:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India announces record date for dividend",
+    "body": "State Bank of India announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0112",
+    "timestamp": "2025-04-09T09:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd completes scheduled maintenance shutdown",
+    "body": "Nestle India Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0113",
+    "timestamp": "2025-04-09T09:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd completes scheduled maintenance shutdown",
+    "body": "Reliance Industries Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0114",
+    "timestamp": "2025-04-10T12:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd appoints new independent director",
+    "body": "Oil & Natural Gas Corp Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0115",
+    "timestamp": "2025-04-11T12:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd in talks to acquire smaller regional player",
+    "body": "Maruti Suzuki India Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0116",
+    "timestamp": "2025-04-14T12:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd to hold board meeting to consider results",
+    "body": "ICICI Bank Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0117",
+    "timestamp": "2025-04-14T14:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd beats quarterly estimates on strong demand",
+    "body": "Hindustan Unilever Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0118",
+    "timestamp": "2025-04-15T12:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd clarifies media report on expansion plans",
+    "body": "Oil & Natural Gas Corp Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0119",
+    "timestamp": "2025-04-15T14:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd announces record date for dividend",
+    "body": "Hindustan Unilever Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0120",
+    "timestamp": "2025-04-16T15:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0121",
+    "timestamp": "2025-04-17T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Brokerage downgrades Mahindra & Mahindra Ltd, flags valuation risk",
+    "body": "Brokerage downgrades Mahindra & Mahindra Ltd, flags valuation risk.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0122",
+    "timestamp": "2025-04-18T10:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd clarifies media report on expansion plans",
+    "body": "Nestle India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0123",
+    "timestamp": "2025-04-21T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown",
+    "body": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0125",
+    "timestamp": "2025-04-22T09:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd appoints new independent director",
+    "body": "ICICI Bank Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0124",
+    "timestamp": "2025-04-22T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd clarifies media report on expansion plans",
+    "body": "Nestle India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0126",
+    "timestamp": "2025-04-23T14:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd launches new flagship product to positive reviews",
+    "body": "Maruti Suzuki India Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0127",
+    "timestamp": "2025-04-24T15:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd wins large multi-year deal, shares in focus",
+    "body": "ITC Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0128",
+    "timestamp": "2025-04-25T09:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India announces buyback, board clears proposal",
+    "body": "State Bank of India announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0129",
+    "timestamp": "2025-04-28T14:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd CFO resigns abruptly, succession unclear",
+    "body": "HDFC Bank Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0130",
+    "timestamp": "2025-04-29T11:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "Regulator opens probe into HDFC Bank Ltd accounting practices",
+    "body": "Regulator opens probe into HDFC Bank Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0131",
+    "timestamp": "2025-04-29T15:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd clarifies media report on expansion plans",
+    "body": "ICICI Bank Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0132",
+    "timestamp": "2025-04-30T15:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd announces record date for dividend",
+    "body": "Wipro Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0133",
+    "timestamp": "2025-05-01T14:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd wins large multi-year deal, shares in focus",
+    "body": "Mahindra & Mahindra Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0134",
+    "timestamp": "2025-05-02T13:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd clarifies media report on expansion plans",
+    "body": "Reliance Industries Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0135",
+    "timestamp": "2025-05-02T13:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd launches new flagship product to positive reviews",
+    "body": "Oil & Natural Gas Corp Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0136",
+    "timestamp": "2025-05-05T12:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd to hold board meeting to consider results",
+    "body": "Tata Consultancy Services Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0137",
+    "timestamp": "2025-05-06T09:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd in talks to acquire smaller regional player",
+    "body": "NTPC Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0138",
+    "timestamp": "2025-05-06T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd beats quarterly estimates on strong demand",
+    "body": "Hindustan Unilever Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0002",
+    "timestamp": "2025-05-07T10:15:00",
+    "symbols": [
+      "HDFCBANK",
+      "ICICIBANK",
+      "SBIN"
+    ],
+    "headline": "Banking & Financials stocks fall on policy tightening worries",
+    "body": "Banking & Financials stocks fall on policy tightening worries.",
+    "source": "sector_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0139",
+    "timestamp": "2025-05-07T13:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd in talks to acquire smaller regional player",
+    "body": "ITC Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0140",
+    "timestamp": "2025-05-08T14:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd announces buyback, board clears proposal",
+    "body": "Infosys Ltd announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0142",
+    "timestamp": "2025-05-09T14:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd launches new flagship product to positive reviews",
+    "body": "Maruti Suzuki India Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0141",
+    "timestamp": "2025-05-09T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd in talks to acquire smaller regional player",
+    "body": "Nestle India Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0143",
+    "timestamp": "2025-05-12T09:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd to hold board meeting to consider results",
+    "body": "Tata Consultancy Services Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0145",
+    "timestamp": "2025-05-13T10:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd to hold board meeting to consider results",
+    "body": "HDFC Bank Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0144",
+    "timestamp": "2025-05-13T12:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0146",
+    "timestamp": "2025-05-14T10:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd clarifies media report on expansion plans",
+    "body": "Reliance Industries Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0148",
+    "timestamp": "2025-05-15T09:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd to hold board meeting to consider results",
+    "body": "Tata Motors Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0147",
+    "timestamp": "2025-05-15T13:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd beats quarterly estimates on strong demand",
+    "body": "Mahindra & Mahindra Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0149",
+    "timestamp": "2025-05-16T11:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd raises FY guidance after robust order inflows",
+    "body": "Maruti Suzuki India Ltd raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0150",
+    "timestamp": "2025-05-19T11:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd in talks to acquire smaller regional player",
+    "body": "NTPC Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0151",
+    "timestamp": "2025-05-19T14:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India in talks to acquire smaller regional player",
+    "body": "State Bank of India in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0152",
+    "timestamp": "2025-05-20T10:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd clarifies media report on expansion plans",
+    "body": "HDFC Bank Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0153",
+    "timestamp": "2025-05-20T11:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd clarifies media report on expansion plans",
+    "body": "Infosys Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0154",
+    "timestamp": "2025-05-21T12:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd launches new flagship product to positive reviews",
+    "body": "Tata Motors Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0155",
+    "timestamp": "2025-05-22T13:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd appoints new independent director",
+    "body": "ICICI Bank Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0003",
+    "timestamp": "2025-05-23T09:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd beats profit estimates for the quarter",
+    "body": "Tata Motors Ltd beats profit estimates for the quarter.",
+    "source": "research_primary",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0156",
+    "timestamp": "2025-05-23T15:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd misses profit view as margins compress",
+    "body": "Oil & Natural Gas Corp Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0157",
+    "timestamp": "2025-05-26T13:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd appoints new independent director",
+    "body": "Infosys Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0158",
+    "timestamp": "2025-05-27T15:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd appoints new independent director",
+    "body": "Tata Motors Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0160",
+    "timestamp": "2025-05-28T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd appoints new independent director",
+    "body": "Hindustan Unilever Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0159",
+    "timestamp": "2025-05-28T15:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd recalls units after quality complaints",
+    "body": "Tata Consultancy Services Ltd recalls units after quality complaints.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0161",
+    "timestamp": "2025-05-29T10:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd appoints new independent director",
+    "body": "NTPC Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0162",
+    "timestamp": "2025-05-30T13:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India clarifies media report on expansion plans",
+    "body": "State Bank of India clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0163",
+    "timestamp": "2025-05-30T13:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd completes scheduled maintenance shutdown",
+    "body": "Tata Motors Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0164",
+    "timestamp": "2025-06-02T10:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India appoints new independent director",
+    "body": "State Bank of India appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0165",
+    "timestamp": "2025-06-03T15:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd clarifies media report on expansion plans",
+    "body": "Wipro Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0166",
+    "timestamp": "2025-06-03T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India in talks to acquire smaller regional player",
+    "body": "State Bank of India in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0167",
+    "timestamp": "2025-06-04T12:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown",
+    "body": "Mahindra & Mahindra Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0168",
+    "timestamp": "2025-06-04T12:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd in talks to acquire smaller regional player",
+    "body": "Infosys Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0169",
+    "timestamp": "2025-06-05T09:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results",
+    "body": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0170",
+    "timestamp": "2025-06-06T09:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd cuts outlook citing weak demand environment",
+    "body": "Reliance Industries Ltd cuts outlook citing weak demand environment.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0171",
+    "timestamp": "2025-06-06T10:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd misses profit view as margins compress",
+    "body": "ICICI Bank Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0172",
+    "timestamp": "2025-06-09T09:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd announces record date for dividend",
+    "body": "Hindustan Unilever Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0173",
+    "timestamp": "2025-06-09T11:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "Brokerage upgrades ITC Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades ITC Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0174",
+    "timestamp": "2025-06-10T13:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd to hold board meeting to consider results",
+    "body": "Tata Motors Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0175",
+    "timestamp": "2025-06-11T09:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd in talks to acquire smaller regional player",
+    "body": "Nestle India Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0176",
+    "timestamp": "2025-06-11T11:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd to hold board meeting to consider results",
+    "body": "HDFC Bank Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0004",
+    "timestamp": "2025-06-11T12:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd confirms strategic restructuring plan",
+    "body": "ICICI Bank Ltd confirms strategic restructuring plan.",
+    "source": "research_primary",
+    "event_type": "acquisition",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0177",
+    "timestamp": "2025-06-12T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd appoints new independent director",
+    "body": "Mahindra & Mahindra Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0178",
+    "timestamp": "2025-06-12T13:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd completes scheduled maintenance shutdown",
+    "body": "Reliance Industries Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0179",
+    "timestamp": "2025-06-13T13:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd to hold board meeting to consider results",
+    "body": "NTPC Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0180",
+    "timestamp": "2025-06-16T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd clarifies media report on expansion plans",
+    "body": "Nestle India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0181",
+    "timestamp": "2025-06-16T15:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd wins large multi-year deal, shares in focus",
+    "body": "ITC Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0182",
+    "timestamp": "2025-06-17T11:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd launches new flagship product to positive reviews",
+    "body": "ITC Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0184",
+    "timestamp": "2025-06-18T11:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd completes scheduled maintenance shutdown",
+    "body": "NTPC Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0183",
+    "timestamp": "2025-06-18T12:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd in talks to acquire smaller regional player",
+    "body": "Reliance Industries Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0186",
+    "timestamp": "2025-06-19T12:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "NTPC Ltd announces record date for dividend",
+    "body": "NTPC Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0185",
+    "timestamp": "2025-06-19T13:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd cuts outlook citing weak demand environment",
+    "body": "Reliance Industries Ltd cuts outlook citing weak demand environment.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0187",
+    "timestamp": "2025-06-20T09:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd CFO resigns abruptly, succession unclear",
+    "body": "Reliance Industries Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0188",
+    "timestamp": "2025-06-23T13:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd appoints new independent director",
+    "body": "ITC Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0189",
+    "timestamp": "2025-06-23T14:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd announces buyback, board clears proposal",
+    "body": "Maruti Suzuki India Ltd announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0190",
+    "timestamp": "2025-06-24T14:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Regulator opens probe into Wipro Ltd accounting practices",
+    "body": "Regulator opens probe into Wipro Ltd accounting practices.",
+    "source": "local_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0191",
+    "timestamp": "2025-06-24T14:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd clarifies media report on expansion plans",
+    "body": "Hindustan Unilever Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0193",
+    "timestamp": "2025-06-25T11:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd clarifies media report on expansion plans",
+    "body": "Hindustan Unilever Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0192",
+    "timestamp": "2025-06-25T14:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd appoints new independent director",
+    "body": "Maruti Suzuki India Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0194",
+    "timestamp": "2025-06-26T13:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd appoints new independent director",
+    "body": "Wipro Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0195",
+    "timestamp": "2025-06-27T09:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd appoints new independent director",
+    "body": "Oil & Natural Gas Corp Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0196",
+    "timestamp": "2025-06-27T13:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd beats quarterly estimates on strong demand",
+    "body": "Tata Motors Ltd beats quarterly estimates on strong demand.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0197",
+    "timestamp": "2025-06-30T10:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd wins large multi-year deal, shares in focus",
+    "body": "Infosys Ltd wins large multi-year deal, shares in focus.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0198",
+    "timestamp": "2025-07-01T12:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd misses profit view as margins compress",
+    "body": "Maruti Suzuki India Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0199",
+    "timestamp": "2025-07-01T12:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India misses profit view as margins compress",
+    "body": "State Bank of India misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0200",
+    "timestamp": "2025-07-02T12:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd clarifies media report on expansion plans",
+    "body": "Maruti Suzuki India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0201",
+    "timestamp": "2025-07-03T15:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd appoints new independent director",
+    "body": "Tata Motors Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0202",
+    "timestamp": "2025-07-03T15:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd completes scheduled maintenance shutdown",
+    "body": "Tata Motors Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0204",
+    "timestamp": "2025-07-04T12:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd announces record date for dividend",
+    "body": "Oil & Natural Gas Corp Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0203",
+    "timestamp": "2025-07-04T14:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd to hold board meeting to consider results",
+    "body": "Tata Motors Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0205",
+    "timestamp": "2025-07-07T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India clarifies media report on expansion plans",
+    "body": "State Bank of India clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0206",
+    "timestamp": "2025-07-07T15:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd CFO resigns abruptly, succession unclear",
+    "body": "Oil & Natural Gas Corp Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0208",
+    "timestamp": "2025-07-08T11:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results",
+    "body": "Oil & Natural Gas Corp Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0207",
+    "timestamp": "2025-07-08T14:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd misses profit view as margins compress",
+    "body": "Nestle India Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0209",
+    "timestamp": "2025-07-09T15:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd in talks to acquire smaller regional player",
+    "body": "ICICI Bank Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0210",
+    "timestamp": "2025-07-09T15:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd to hold board meeting to consider results",
+    "body": "Infosys Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0211",
+    "timestamp": "2025-07-10T09:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd clarifies media report on expansion plans",
+    "body": "Tata Motors Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0212",
+    "timestamp": "2025-07-10T10:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd in talks to acquire smaller regional player",
+    "body": "ITC Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0213",
+    "timestamp": "2025-07-11T09:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Brokerage upgrades Reliance Industries Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Reliance Industries Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0005",
+    "timestamp": "2025-07-11T10:15:00",
+    "symbols": [
+      "TCS",
+      "INFY",
+      "WIPRO"
+    ],
+    "headline": "Information Technology stocks fall on policy tightening worries",
+    "body": "Information Technology stocks fall on policy tightening worries.",
+    "source": "sector_wire",
+    "event_type": "regulation",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0214",
+    "timestamp": "2025-07-14T15:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd announces record date for dividend",
+    "body": "Oil & Natural Gas Corp Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0215",
+    "timestamp": "2025-07-15T09:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd in talks to acquire smaller regional player",
+    "body": "Mahindra & Mahindra Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0216",
+    "timestamp": "2025-07-15T14:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd launches new flagship product to positive reviews",
+    "body": "Wipro Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0217",
+    "timestamp": "2025-07-16T13:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd appoints new independent director",
+    "body": "Oil & Natural Gas Corp Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0006",
+    "timestamp": "2025-07-16T14:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd confirms strategic restructuring plan",
+    "body": "Reliance Industries Ltd confirms strategic restructuring plan.",
+    "source": "research_primary",
+    "event_type": "acquisition",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0218",
+    "timestamp": "2025-07-17T12:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd clarifies media report on expansion plans",
+    "body": "Nestle India Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0007",
+    "timestamp": "2025-07-18T11:15:00",
+    "symbols": [],
+    "headline": "Global markets slide as risk sentiment sours",
+    "body": "Global markets slide as risk sentiment sours.",
+    "source": "market_wire",
+    "event_type": "market",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "market"
+  },
+  {
+    "id": "NEWS0219",
+    "timestamp": "2025-07-18T11:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd clarifies media report on expansion plans",
+    "body": "Mahindra & Mahindra Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0220",
+    "timestamp": "2025-07-21T10:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd clarifies media report on expansion plans",
+    "body": "Tata Consultancy Services Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0221",
+    "timestamp": "2025-07-21T14:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd CFO resigns abruptly, succession unclear",
+    "body": "Wipro Ltd CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0222",
+    "timestamp": "2025-07-22T12:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "Brokerage downgrades State Bank of India, flags valuation risk",
+    "body": "Brokerage downgrades State Bank of India, flags valuation risk.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0223",
+    "timestamp": "2025-07-22T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India announces buyback, board clears proposal",
+    "body": "State Bank of India announces buyback, board clears proposal.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0008",
+    "timestamp": "2025-07-23T09:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Infosys Ltd beats profit estimates for the quarter",
+    "body": "Infosys Ltd beats profit estimates for the quarter.",
+    "source": "research_primary",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0224",
+    "timestamp": "2025-07-23T11:15:00",
+    "symbols": [
+      "MARUTI"
+    ],
+    "headline": "Maruti Suzuki India Ltd appoints new independent director",
+    "body": "Maruti Suzuki India Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0226",
+    "timestamp": "2025-07-24T12:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd to hold board meeting to consider results",
+    "body": "HDFC Bank Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0225",
+    "timestamp": "2025-07-24T15:15:00",
+    "symbols": [
+      "SBIN"
+    ],
+    "headline": "State Bank of India CFO resigns abruptly, succession unclear",
+    "body": "State Bank of India CFO resigns abruptly, succession unclear.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0009",
+    "timestamp": "2025-07-25T10:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd demerger buzz lifts turnover",
+    "body": "ITC Ltd demerger buzz lifts turnover.",
+    "source": "chatter",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0227",
+    "timestamp": "2025-07-25T14:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd announces record date for dividend",
+    "body": "Nestle India Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0228",
+    "timestamp": "2025-07-28T12:15:00",
+    "symbols": [
+      "WIPRO"
+    ],
+    "headline": "Wipro Ltd in talks to acquire smaller regional player",
+    "body": "Wipro Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0229",
+    "timestamp": "2025-07-29T09:15:00",
+    "symbols": [
+      "NTPC"
+    ],
+    "headline": "Brokerage upgrades NTPC Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades NTPC Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0010",
+    "timestamp": "2025-07-30T10:15:00",
+    "symbols": [
+      "HDFCBANK"
+    ],
+    "headline": "HDFC Bank Ltd swings in a wide range amid uncertainty",
+    "body": "HDFC Bank Ltd swings in a wide range amid uncertainty.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0230",
+    "timestamp": "2025-07-30T12:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd to hold board meeting to consider results",
+    "body": "Tata Consultancy Services Ltd to hold board meeting to consider results.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0231",
+    "timestamp": "2025-07-31T15:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Tata Motors Ltd appoints new independent director",
+    "body": "Tata Motors Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0232",
+    "timestamp": "2025-07-31T15:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Hindustan Unilever Ltd clarifies media report on expansion plans",
+    "body": "Hindustan Unilever Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0233",
+    "timestamp": "2025-08-01T10:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd appoints new independent director",
+    "body": "Nestle India Ltd appoints new independent director.",
+    "source": "local_wire",
+    "event_type": "leadership",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0234",
+    "timestamp": "2025-08-01T12:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown",
+    "body": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0235",
+    "timestamp": "2025-08-04T15:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd announces record date for dividend",
+    "body": "ICICI Bank Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0236",
+    "timestamp": "2025-08-05T09:15:00",
+    "symbols": [
+      "TATAMOTORS"
+    ],
+    "headline": "Brokerage downgrades Tata Motors Ltd, flags valuation risk",
+    "body": "Brokerage downgrades Tata Motors Ltd, flags valuation risk.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0237",
+    "timestamp": "2025-08-05T11:15:00",
+    "symbols": [
+      "INFY"
+    ],
+    "headline": "Brokerage upgrades Infosys Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades Infosys Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0238",
+    "timestamp": "2025-08-06T10:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd completes scheduled maintenance shutdown",
+    "body": "Reliance Industries Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0239",
+    "timestamp": "2025-08-06T13:15:00",
+    "symbols": [
+      "M&M"
+    ],
+    "headline": "Mahindra & Mahindra Ltd announces record date for dividend",
+    "body": "Mahindra & Mahindra Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0241",
+    "timestamp": "2025-08-07T14:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown",
+    "body": "Tata Consultancy Services Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0240",
+    "timestamp": "2025-08-07T15:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd in talks to acquire smaller regional player",
+    "body": "ICICI Bank Ltd in talks to acquire smaller regional player.",
+    "source": "local_wire",
+    "event_type": "acquisition",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0242",
+    "timestamp": "2025-08-08T10:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "ICICI Bank Ltd completes scheduled maintenance shutdown",
+    "body": "ICICI Bank Ltd completes scheduled maintenance shutdown.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0243",
+    "timestamp": "2025-08-08T11:15:00",
+    "symbols": [
+      "ONGC"
+    ],
+    "headline": "Oil & Natural Gas Corp Ltd clarifies media report on expansion plans",
+    "body": "Oil & Natural Gas Corp Ltd clarifies media report on expansion plans.",
+    "source": "local_wire",
+    "event_type": "operational",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0244",
+    "timestamp": "2025-08-11T15:15:00",
+    "symbols": [
+      "ICICIBANK"
+    ],
+    "headline": "Brokerage upgrades ICICI Bank Ltd to 'buy', lifts target price",
+    "body": "Brokerage upgrades ICICI Bank Ltd to 'buy', lifts target price.",
+    "source": "local_wire",
+    "event_type": "analyst_action",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0245",
+    "timestamp": "2025-08-11T15:15:00",
+    "symbols": [
+      "NESTLEIND"
+    ],
+    "headline": "Nestle India Ltd raises FY guidance after robust order inflows",
+    "body": "Nestle India Ltd raises FY guidance after robust order inflows.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0246",
+    "timestamp": "2025-08-12T10:15:00",
+    "symbols": [
+      "RELIANCE"
+    ],
+    "headline": "Reliance Industries Ltd launches new flagship product to positive reviews",
+    "body": "Reliance Industries Ltd launches new flagship product to positive reviews.",
+    "source": "local_wire",
+    "event_type": "product_launch",
+    "sentiment_score": 1.0,
+    "sentiment_label": "positive",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0247",
+    "timestamp": "2025-08-13T12:15:00",
+    "symbols": [
+      "TCS"
+    ],
+    "headline": "Tata Consultancy Services Ltd misses profit view as margins compress",
+    "body": "Tata Consultancy Services Ltd misses profit view as margins compress.",
+    "source": "local_wire",
+    "event_type": "earnings",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0248",
+    "timestamp": "2025-08-14T09:15:00",
+    "symbols": [
+      "ITC"
+    ],
+    "headline": "ITC Ltd announces record date for dividend",
+    "body": "ITC Ltd announces record date for dividend.",
+    "source": "local_wire",
+    "event_type": "financing",
+    "sentiment_score": 0.0,
+    "sentiment_label": "neutral",
+    "scope": "company"
+  },
+  {
+    "id": "NEWS0249",
+    "timestamp": "2025-08-15T13:15:00",
+    "symbols": [
+      "HINDUNILVR"
+    ],
+    "headline": "Court rules against Hindustan Unilever Ltd in long-running dispute",
+    "body": "Court rules against Hindustan Unilever Ltd in long-running dispute.",
+    "source": "local_wire",
+    "event_type": "legal_issue",
+    "sentiment_score": -1.0,
+    "sentiment_label": "negative",
+    "scope": "company"
+  }
+]

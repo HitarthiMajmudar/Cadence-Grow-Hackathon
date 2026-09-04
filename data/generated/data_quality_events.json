@@ -1,0 +1,41 @@
+[
+  {
+    "symbol": "SBIN",
+    "timestamp": "2025-08-01T09:15:00",
+    "status": "missing",
+    "sources": [
+      "research_primary"
+    ],
+    "details": "4 consecutive bars unavailable from the primary feed.",
+    "confidence_penalty": 40
+  },
+  {
+    "symbol": "ONGC",
+    "timestamp": "2025-08-05T09:15:00",
+    "status": "stale",
+    "sources": [
+      "delayed_vendor"
+    ],
+    "details": "Feed delayed; 6 bars repeat the last good print.",
+    "confidence_penalty": 25
+  },
+  {
+    "symbol": "MARUTI",
+    "timestamp": "2025-08-07T09:15:00",
+    "status": "conflicting",
+    "sources": [
+      {
+        "name": "research_primary",
+        "priority": 1,
+        "relative_delta": 0.0
+      },
+      {
+        "name": "exchange_snapshot",
+        "priority": 2,
+        "relative_delta": 0.018
+      }
+    ],
+    "details": "research_primary and exchange_snapshot disagree on the close by 1.8%. The higher-priority research source was used and confidence was reduced.",
+    "confidence_penalty": 15
+  }
+]

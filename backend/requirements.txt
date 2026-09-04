@@ -1,0 +1,26 @@
+# Market Detective — backend dependencies
+# All pinned to versions with prebuilt wheels for CPython 3.12 / 3.13.
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+email-validator==2.2.0
+python-dotenv==1.0.1
+
+# MongoDB Atlas (application persistence only — never a market-data source)
+motor==3.6.0
+pymongo==4.9.2
+dnspython==2.7.0
+
+# Data / ML
+numpy==2.2.1
+pandas==2.2.3
+scikit-learn==1.6.0
+scipy==1.15.0
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.25.2
+httpx==0.28.1
+asgi-lifespan==2.1.0

@@ -1,0 +1,102 @@
+{
+  "_comment": "Single source of truth for the Attention Score. Points are additive and the raw sum is clamped to [0, 100]. Data-quality problems reduce CONFIDENCE, never raise the score. Edit here, restart the API, re-run the seed to recompute cases.",
+  "version": "1.0.0",
+
+  "curve_exponent": 1.12,
+
+  "components": {
+    "price_surprise":        { "max_points": 20, "label": "Price surprise",            "saturation_z": 6.0,  "onset_z": 1.6 },
+    "volume_anomaly":        { "max_points": 15, "label": "Volume anomaly",            "saturation_ratio": 4.2, "onset_ratio": 1.6 },
+    "sector_divergence":     { "max_points": 15, "label": "Sector divergence",         "saturation_pct": 0.05, "onset_pct": 0.011 },
+    "market_divergence":     { "max_points": 10, "label": "Market divergence",         "saturation_pct": 0.05, "onset_pct": 0.011 },
+    "volatility_regime":     { "max_points": 15, "label": "Volatility-regime change",  "saturation_ratio": 2.5, "onset_ratio": 1.35 },
+    "news_relevance_sentiment": { "max_points": 15, "label": "News relevance & sentiment shift", "saturation": 1.0, "onset": 0.18 },
+    "signal_agreement":      { "max_points": 10, "label": "Signal agreement",          "per_signal": 2.6, "max_signals": 5 }
+  },
+
+  "severity_bands": {
+    "critical": 78,
+    "high": 60,
+    "moderate": 44,
+    "low": 28,
+    "minimal": 0
+  },
+
+  "confidence": {
+    "base": 100,
+    "penalties": {
+      "stale": 25,
+      "missing": 40,
+      "conflicting": 15,
+      "delayed": 10,
+      "short_history": 20,
+      "thin_news_window": 5,
+      "isolation_forest_untrained": 8
+    },
+    "floor": 20,
+    "ceiling": 100,
+    "short_history_bars": 40
+  },
+
+  "case_generation": {
+    "min_attention_score": 48,
+    "min_confidence": 25,
+    "soft_margin": 15,
+    "event_cooldown_bars": 12,
+    "comparison_window_bars": 20,
+    "extreme_volume_ratio": 3.0,
+    "big_move_cum_zscore": 4.0,
+    "big_move_cum_pct": 0.06,
+    "always_open_for_verdicts": [
+      "Price activity before recorded news",
+      "Conflicting evidence",
+      "Volatility-regime change",
+      "Headline noise"
+    ],
+    "context_verdicts": [
+      "Market-wide movement",
+      "Sector-driven movement",
+      "News-supported movement"
+    ]
+  },
+
+  "signals": {
+    "return_z_threshold": 2.6,
+    "return_cum_z_threshold": 3.2,
+    "volume_ratio_threshold": 1.9,
+    "sector_divergence_pct": 0.018,
+    "market_divergence_pct": 0.018,
+    "volatility_ratio_threshold": 1.45,
+    "news_shift_threshold": 0.25
+  },
+
+  "features": {
+    "return_baseline_window": 20,
+    "volume_baseline_window": 20,
+    "volatility_fast_window": 10,
+    "volatility_slow_window": 40,
+    "beta_window": 60,
+    "moving_average_window": 20,
+    "drawdown_window": 20,
+    "breakout_window": 20,
+    "news_window_bars": 7,
+    "warmup_bars": 45
+  },
+
+  "isolation_forest": {
+    "enabled": true,
+    "min_training_rows": 400,
+    "contamination": 0.03,
+    "n_estimators": 200,
+    "random_state": 42,
+    "score_weight_into_agreement": true
+  },
+
+  "source_priority": {
+    "research_primary": 1,
+    "exchange_snapshot": 2,
+    "delayed_vendor": 3,
+    "local_wire": 4,
+    "unavailable": 99
+  }
+}

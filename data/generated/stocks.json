@@ -1,0 +1,167 @@
+[
+  {
+    "symbol": "RELIANCE",
+    "name": "Reliance Industries Ltd",
+    "sector": "ENERGY",
+    "sector_name": "Energy",
+    "index": "NIFTYMD",
+    "weight": 0.13542,
+    "base_price": 2850.0,
+    "currency": "INR",
+    "summary": "Diversified conglomerate spanning oil-to-chemicals, telecom (Jio) and retail."
+  },
+  {
+    "symbol": "ONGC",
+    "name": "Oil & Natural Gas Corp Ltd",
+    "sector": "ENERGY",
+    "sector_name": "Energy",
+    "index": "NIFTYMD",
+    "weight": 0.03125,
+    "base_price": 265.0,
+    "currency": "INR",
+    "summary": "State-owned crude-oil and natural-gas explorer and producer."
+  },
+  {
+    "symbol": "NTPC",
+    "name": "NTPC Ltd",
+    "sector": "ENERGY",
+    "sector_name": "Energy",
+    "index": "NIFTYMD",
+    "weight": 0.03125,
+    "base_price": 360.0,
+    "currency": "INR",
+    "summary": "India's largest power-generation utility, majority government owned."
+  },
+  {
+    "symbol": "TCS",
+    "name": "Tata Consultancy Services Ltd",
+    "sector": "IT",
+    "sector_name": "Information Technology",
+    "index": "NIFTYMD",
+    "weight": 0.10417,
+    "base_price": 3900.0,
+    "currency": "INR",
+    "summary": "India's largest IT-services exporter, part of the Tata group."
+  },
+  {
+    "symbol": "INFY",
+    "name": "Infosys Ltd",
+    "sector": "IT",
+    "sector_name": "Information Technology",
+    "index": "NIFTYMD",
+    "weight": 0.08333,
+    "base_price": 1650.0,
+    "currency": "INR",
+    "summary": "Global technology-services and consulting major headquartered in Bengaluru."
+  },
+  {
+    "symbol": "WIPRO",
+    "name": "Wipro Ltd",
+    "sector": "IT",
+    "sector_name": "Information Technology",
+    "index": "NIFTYMD",
+    "weight": 0.03125,
+    "base_price": 545.0,
+    "currency": "INR",
+    "summary": "IT-services and consulting company headquartered in Bengaluru."
+  },
+  {
+    "symbol": "HDFCBANK",
+    "name": "HDFC Bank Ltd",
+    "sector": "BANKING",
+    "sector_name": "Banking & Financials",
+    "index": "NIFTYMD",
+    "weight": 0.125,
+    "base_price": 1550.0,
+    "currency": "INR",
+    "summary": "India's largest private-sector bank by assets and market value."
+  },
+  {
+    "symbol": "ICICIBANK",
+    "name": "ICICI Bank Ltd",
+    "sector": "BANKING",
+    "sector_name": "Banking & Financials",
+    "index": "NIFTYMD",
+    "weight": 0.09375,
+    "base_price": 1150.0,
+    "currency": "INR",
+    "summary": "Large private-sector bank with a broad retail and corporate franchise."
+  },
+  {
+    "symbol": "SBIN",
+    "name": "State Bank of India",
+    "sector": "BANKING",
+    "sector_name": "Banking & Financials",
+    "index": "NIFTYMD",
+    "weight": 0.0625,
+    "base_price": 820.0,
+    "currency": "INR",
+    "summary": "India's largest public-sector bank, majority owned by the Government of India."
+  },
+  {
+    "symbol": "TATAMOTORS",
+    "name": "Tata Motors Ltd",
+    "sector": "AUTO",
+    "sector_name": "Automobile",
+    "index": "NIFTYMD",
+    "weight": 0.05208,
+    "base_price": 970.0,
+    "currency": "INR",
+    "summary": "Automobile manufacturer; owns Jaguar Land Rover and a growing EV portfolio."
+  },
+  {
+    "symbol": "MARUTI",
+    "name": "Maruti Suzuki India Ltd",
+    "sector": "AUTO",
+    "sector_name": "Automobile",
+    "index": "NIFTYMD",
+    "weight": 0.05208,
+    "base_price": 12800.0,
+    "currency": "INR",
+    "summary": "India's largest passenger-vehicle maker, majority owned by Suzuki."
+  },
+  {
+    "symbol": "M&M",
+    "name": "Mahindra & Mahindra Ltd",
+    "sector": "AUTO",
+    "sector_name": "Automobile",
+    "index": "NIFTYMD",
+    "weight": 0.04167,
+    "base_price": 2900.0,
+    "currency": "INR",
+    "summary": "Automobile and farm-equipment maker; the 'Mahindra' SUV and tractor brand."
+  },
+  {
+    "symbol": "ITC",
+    "name": "ITC Ltd",
+    "sector": "FMCG",
+    "sector_name": "Fast-Moving Consumer Goods",
+    "index": "NIFTYMD",
+    "weight": 0.07292,
+    "base_price": 470.0,
+    "currency": "INR",
+    "summary": "Diversified FMCG, hotels, paperboards and agri-business group."
+  },
+  {
+    "symbol": "HINDUNILVR",
+    "name": "Hindustan Unilever Ltd",
+    "sector": "FMCG",
+    "sector_name": "Fast-Moving Consumer Goods",
+    "index": "NIFTYMD",
+    "weight": 0.05208,
+    "base_price": 2450.0,
+    "currency": "INR",
+    "summary": "India's largest listed FMCG company, a Unilever subsidiary."
+  },
+  {
+    "symbol": "NESTLEIND",
+    "name": "Nestle India Ltd",
+    "sector": "FMCG",
+    "sector_name": "Fast-Moving Consumer Goods",
+    "index": "NIFTYMD",
+    "weight": 0.03125,
+    "base_price": 2500.0,
+    "currency": "INR",
+    "summary": "Packaged-foods and beverages maker; the Maggi and Nescaf\u00e9 brand owner."
+  }
+]

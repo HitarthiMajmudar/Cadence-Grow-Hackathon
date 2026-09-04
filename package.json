@@ -1,0 +1,18 @@
+{
+  "name": "market-detective",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Your stocks moved. We investigated why. — an educational, offline, evidence-backed market-analysis prototype.",
+  "scripts": {
+    "dev:backend": "cd backend && .venv/bin/uvicorn app.main:app --reload --port 8000",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && .venv/bin/python -m scripts.seed",
+    "seed:fresh": "cd backend && .venv/bin/python -m scripts.seed --fresh",
+    "generate-data": "cd backend && .venv/bin/python -m app.data.generator",
+    "test:backend": "cd backend && .venv/bin/python -m pytest",
+    "test:frontend": "cd frontend && npm run test",
+    "diagnose": "cd backend && .venv/bin/python -m scripts.diagnose",
+    "build:frontend": "cd frontend && npm run build",
+    "check": "cd frontend && npm run typecheck && npm run lint && npm run build && cd ../backend && .venv/bin/ruff check app scripts tests && .venv/bin/python -m pytest -q"
+  }
+}
