@@ -29,7 +29,7 @@ def test_score_row_on_extreme_inputs():
     assert r.score == 100.0
     assert r.severity == "critical"
 
-    calm = {k: 0 for k in row}
+    calm = dict.fromkeys(row, 0)
     calm["volume_ratio"] = 1.0
     calm["history_bars"] = 500
     calm["freshness_status"] = "fresh"

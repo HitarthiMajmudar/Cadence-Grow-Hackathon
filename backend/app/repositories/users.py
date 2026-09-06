@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from pymongo.errors import DuplicateKeyError as MongoDuplicateKeyError
+
 from app.core.errors import ConflictError
+from app.db.memory import DuplicateKeyError as MemoryDuplicateKeyError
 from app.repositories.base import BaseRepository, new_id, utcnow
 
 
@@ -34,7 +37,10 @@ class UserRepository(BaseRepository):
             "last_login_at": utcnow(),
             "preferences": dict(DEFAULT_PREFERENCES),
         }
-        await self.insert(doc)
+        try:
+            await self.insert(doc)
+        except (MongoDuplicateKeyError, MemoryDuplicateKeyError) as exc:
+            raise ConflictError("An account with this email already exists.") from exc
         return doc
 
     async def by_email(self, email: str) -> dict | None:

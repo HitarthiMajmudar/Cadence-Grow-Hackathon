@@ -45,7 +45,8 @@ def register_error_handlers(app: FastAPI) -> None:
         return JSONResponse(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             content={"detail": "Request validation failed", "code": "validation_error",
-                     "errors": exc.errors()},
+                     "errors": [{k: v for k, v in error.items() if k not in {"ctx", "input"}}
+                                for error in exc.errors()]},
         )
 
     @app.exception_handler(Exception)

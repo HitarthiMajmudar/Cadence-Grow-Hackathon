@@ -1,7 +1,7 @@
 """Shared enums and base models."""
 from __future__ import annotations
 
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict
 
@@ -10,7 +10,7 @@ class ApiModel(BaseModel):
     model_config = ConfigDict(populate_by_name=True, use_enum_values=True)
 
 
-class Freshness(str, Enum):
+class Freshness(StrEnum):
     FRESH = "fresh"
     DELAYED = "delayed"
     STALE = "stale"
@@ -18,7 +18,7 @@ class Freshness(str, Enum):
     CONFLICTING = "conflicting"
 
 
-class Severity(str, Enum):
+class Severity(StrEnum):
     CRITICAL = "critical"
     HIGH = "high"
     MODERATE = "moderate"
@@ -26,7 +26,7 @@ class Severity(str, Enum):
     MINIMAL = "minimal"
 
 
-class Verdict(str, Enum):
+class Verdict(StrEnum):
     UNUSUAL_PRICE_VOLUME = "Unusual price and volume activity"
     SECTOR_DRIVEN = "Sector-driven movement"
     MARKET_WIDE = "Market-wide movement"
@@ -41,14 +41,14 @@ class Verdict(str, Enum):
     NORMAL = "Normal movement"
 
 
-class CaseStatus(str, Enum):
+class CaseStatus(StrEnum):
     NEW = "new"
     VIEWED = "viewed"
     SAVED = "saved"
     DISMISSED = "dismissed"
 
 
-class ChangeClass(str, Enum):
+class ChangeClass(StrEnum):
     IMPORTANT = "important"
     INVESTIGATING = "investigating"
     EXPLAINED = "explained"
@@ -56,13 +56,13 @@ class ChangeClass(str, Enum):
     INSUFFICIENT_DATA = "insufficient_data"
 
 
-class DetectiveStatus(str, Enum):
+class DetectiveStatus(StrEnum):
     SUPPORTS = "supports"
     OPPOSES = "opposes"
     INCONCLUSIVE = "inconclusive"
 
 
-class EventType(str, Enum):
+class EventType(StrEnum):
     EARNINGS = "earnings"
     ACQUISITION = "acquisition"
     REGULATION = "regulation"

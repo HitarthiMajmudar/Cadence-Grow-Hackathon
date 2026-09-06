@@ -96,3 +96,29 @@ async def test_demo_clock_unique_per_user(repos):
     assert d1["_id"] == d2["_id"]
     rows = await repos.db["demo_clock"].find({"user_id": "user-1"}).to_list(None)
     assert len(rows) == 1
+
+
+@pytest.mark.parametrize("backend", ["mongo", "memory"])
+async def test_duplicate_insert_race_returns_conflict(repos, monkeypatch, backend):
+    from unittest.mock import AsyncMock
+
+    from pymongo.errors import DuplicateKeyError as MongoDuplicateKeyError
+
+    from app.db.memory import DuplicateKeyError as MemoryDuplicateKeyError
+
+    users = UserRepository()
+    error = MongoDuplicateKeyError if backend == "mongo" else MemoryDuplicateKeyError
+    monkeypatch.setattr(users, "find_one", AsyncMock(return_value=None))
+    monkeypatch.setattr(users, "insert", AsyncMock(side_effect=error("duplicate email")))
+    with pytest.raises(ConflictError):
+        await users.create("Race", "race@example.com", "hashed-pw")
+
+
+async def test_unique_index_rejects_existing_duplicates(repos):
+    from app.db.memory import DuplicateKeyError
+
+    collection = repos.db["legacy_users"]
+    await collection.insert_one({"email": "duplicate@example.com"})
+    await collection.insert_one({"email": "duplicate@example.com"})
+    with pytest.raises(DuplicateKeyError):
+        await collection.create_index("email", unique=True)

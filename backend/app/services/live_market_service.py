@@ -3,14 +3,17 @@ onto our own schemas. No Attention Score, no anomaly detection: this is a
 plain live-quote lookup, separate from Detective Mode's analysis engine."""
 from __future__ import annotations
 
-from app.services.twelve_data_client import TwelveDataClient
+import math
+
+from app.services.twelve_data_client import MarketDataUnavailable, TwelveDataClient
 
 
 def _to_float(v) -> float | None:
     if v in (None, "", "null"):
         return None
     try:
-        return float(v)
+        value = float(v)
+        return value if math.isfinite(value) else None
     except (TypeError, ValueError):
         return None
 
@@ -42,6 +45,8 @@ class LiveMarketService:
     async def quote(self, symbol: str, exchange: str | None = None) -> dict:
         q = await self.client.get_quote(symbol, exchange)
         price = _to_float(q.get("close"))
+        if price is None:
+            raise MarketDataUnavailable("Live market data provider returned an invalid price.")
         prev_close = _to_float(q.get("previous_close"))
         change = _to_float(q.get("change"))
         change_pct = _to_float(q.get("percent_change"))
@@ -50,7 +55,7 @@ class LiveMarketService:
             "name": q.get("name", symbol.upper()),
             "exchange": q.get("exchange", exchange or ""),
             "currency": q.get("currency"),
-            "price": price if price is not None else 0.0,
+            "price": price,
             "previous_close": prev_close,
             "change": change,
             "change_pct": change_pct,

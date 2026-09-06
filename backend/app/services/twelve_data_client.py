@@ -94,7 +94,10 @@ class TwelveDataClient:
         except ValueError as exc:
             raise MarketDataUnavailable("Live market data provider returned a bad response.") from exc
 
-        if isinstance(data, dict) and data.get("status") == "error":
+        if not isinstance(data, dict):
+            raise MarketDataUnavailable("Live market data provider returned a bad response.")
+
+        if data.get("status") == "error":
             code = data.get("code")
             message = data.get("message", "Unknown provider error.")
             if code == 429:
