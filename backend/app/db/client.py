@@ -125,7 +125,11 @@ class Database:
                 try:
                     await coll.create_index(keys, **options)
                 except Exception as exc:  # noqa: BLE001
-                    logger.debug("index %s on %s skipped: %s", options.get("name"), collection, exc)
+                    if options.get("unique"):
+                        raise RuntimeError(
+                            f"Required unique index {options.get('name')} on {collection} failed"
+                        ) from exc
+                    logger.warning("index %s on %s skipped: %s", options.get("name"), collection, exc)
 
     async def ping(self) -> bool:
         try:

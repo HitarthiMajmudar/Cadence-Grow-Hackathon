@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Search, ShieldCheck, Sparkles } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { OfflineDatasetBadge } from "@/components/badges";
@@ -12,6 +12,13 @@ type Mode = "login" | "signup";
 export function LoginPage() {
   const { user, login, signup } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from;
+  const destination =
+    typeof from === "string" && from.startsWith("/") &&
+    !from.startsWith("//") && !from.includes("\\") && from !== "/login"
+      ? from
+      : "/";
   const [mode, setMode] = useState<Mode>("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,8 +27,8 @@ export function LoginPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (user) navigate("/", { replace: true });
-  }, [user, navigate]);
+    if (user) navigate(destination, { replace: true });
+  }, [user, navigate, destination]);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
@@ -33,7 +40,7 @@ export function LoginPage() {
       } else {
         await login(email.trim(), password);
       }
-      navigate("/", { replace: true });
+      navigate(destination, { replace: true });
     } catch (err: any) {
       setError(err?.message ?? "Something went wrong");
     } finally {

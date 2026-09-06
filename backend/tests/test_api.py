@@ -180,3 +180,13 @@ async def test_stock_endpoints(client):
     assert state["symbol"] == sym
     comp = (await client.get(f"/api/stocks/{sym}/comparison", headers=h)).json()
     assert len(comp["points"]) > 5
+
+
+@pytest.mark.parametrize("password", ["x" * 73, "é" * 37])
+async def test_overlong_password_returns_safe_validation_error(client, password):
+    for path in ("signup", "login"):
+        response = await client.post(f"/api/auth/{path}", json={
+            "name": "Judge", "email": "length@example.com", "password": password,
+        })
+        assert response.status_code == 422
+        assert password not in response.text

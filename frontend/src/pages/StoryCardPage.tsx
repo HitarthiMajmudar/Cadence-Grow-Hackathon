@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useLocation, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toPng } from "html-to-image";
 import { Download, Printer } from "lucide-react";
 import { api } from "@/api/endpoints";
 import { StoryCard } from "@/components/StoryCard";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui";
 import {
   Artifact,
@@ -18,9 +20,12 @@ import {
 
 export function StoryCardPage() {
   const { caseId = "" } = useParams();
-  const { data, isLoading } = useQuery({
+  const { user, loading } = useAuth();
+  const location = useLocation();
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["story-card", caseId],
     queryFn: () => api.storyCard(caseId),
+    enabled: !loading && !!user,
   });
   const ref = useRef<HTMLDivElement>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -38,9 +43,17 @@ export function StoryCardPage() {
     }
   };
 
+  if (loading) return <Spinner />;
+  if (!user) return <Navigate to="/login" state={{ from: location.pathname }} replace />;
+
   return (
     <div className="grid min-h-svh place-items-center bg-muted/30 p-6">
-      {isLoading || !data ? (
+      {isError ? (
+        <div role="alert" className="space-y-3 text-center">
+          <p>Unable to load this story card. Please try again.</p>
+          <Button onClick={() => void refetch()}>Retry</Button>
+        </div>
+      ) : isLoading || !data ? (
         <Spinner />
       ) : (
         <Artifact className="w-full max-w-md">

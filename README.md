@@ -199,7 +199,7 @@ BACKEND_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 DEMO_CLOCK_ADVANCE_BARS=18
 
 # Auth — required in production (APP_ENV=prod fails startup without it)
-JWT_SECRET_KEY=                     # e.g. `openssl rand -hex 32`
+JWT_SECRET_KEY=                     # REQUIRED: generate with `openssl rand -hex 32`
 JWT_ALGORITHM=HS256
 
 # Live Markets — optional; without it, /api/live/* returns 503
@@ -311,7 +311,7 @@ Everything runs locally, is explainable, and is deterministic (fixed
 
 ## Installation
 
-Prerequisites: **Python 3.11–3.13**, **Node 18+**. No Docker.
+Prerequisites: **Python 3.11–3.13**, **Node 22.13+**. No Docker.
 
 ```bash
 # 1. Backend

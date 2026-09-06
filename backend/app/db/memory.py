@@ -254,8 +254,11 @@ class MemoryCollection:
             keys = [(keys, 1)]
         fields = [k for k, _ in keys]
         if unique and fields not in self._unique_indexes:
+            values = {self._key_tuple(doc, fields) for doc in self._docs}
+            if len(values) != len(self._docs):
+                raise DuplicateKeyError(f"duplicate key on {fields} in {self._name}")
             self._unique_indexes.append(fields)
-            self._rebuild_unique_set(tuple(fields))
+            self._unique_sets[tuple(fields)] = values
         return "_".join(f"{f}_{d}" for f, d in keys)
 
     def _key_tuple(self, doc: Document, fields: tuple[str, ...] | list[str]):

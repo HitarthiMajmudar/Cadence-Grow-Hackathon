@@ -103,10 +103,10 @@ def validate_startup(settings: Settings | None = None) -> list[str]:
             "Set MONGODB_URI or use DB_BACKEND=memory / auto."
         )
 
-    if settings.app_env == "prod" and not settings.jwt_secret_key:
+    if not settings.jwt_secret_key or not settings.jwt_secret_key.strip():
         raise RuntimeError(
-            "APP_ENV=prod but JWT_SECRET_KEY is not set. Set a strong random "
-            "secret (e.g. `openssl rand -hex 32`) before running in production."
+            "JWT_SECRET_KEY is not set. Set a strong random "
+            "secret (e.g. `openssl rand -hex 32`) before starting the API."
         )
 
     if not settings.twelve_data_api_key:

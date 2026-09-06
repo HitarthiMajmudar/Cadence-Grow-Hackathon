@@ -40,28 +40,30 @@ async def lifespan(app: FastAPI):
     await database.connect(settings)
     logger.info("persistence backend: %s", database.backend)
 
-    # warm the analysis engine so the first request is fast
-    from app.services.analysis_engine import get_engine
-    engine = get_engine()
-    engine.generate_cases()
-    logger.info("analysis engine warm (%d scored bars)", len(engine.features))
-
-    # convenience: seed automatically the first time so `uvicorn app.main:app`
-    # works with no separate step. `python -m scripts.seed` stays the explicit path.
     try:
-        from app.services.seeding import auto_seed_if_empty
+        # warm the analysis engine so the first request is fast
+        from app.services.analysis_engine import get_engine
+        engine = get_engine()
+        engine.generate_cases()
+        logger.info("analysis engine warm (%d scored bars)", len(engine.features))
 
-        database.set_autoflush(False)
-        if await auto_seed_if_empty(engine):
-            logger.info("auto-seed complete")
-        database.set_autoflush(True)
-        database.flush()
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("auto-seed skipped: %s", exc)
+        # convenience: seed automatically the first time so `uvicorn app.main:app`
+        # works with no separate step. `python -m scripts.seed` stays the explicit path.
+        try:
+            from app.services.seeding import auto_seed_if_empty
 
-    yield
+            database.set_autoflush(False)
+            if await auto_seed_if_empty(engine):
+                logger.info("auto-seed complete")
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("auto-seed skipped: %s", exc)
+        finally:
+            database.set_autoflush(True)
+            database.flush()
 
-    await database.disconnect()
+        yield
+    finally:
+        await database.disconnect()
 
 
 def create_app() -> FastAPI:
